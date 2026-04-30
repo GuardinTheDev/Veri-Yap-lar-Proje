@@ -1,0 +1,7 @@
+C:\Users\Zeynep\source\repos\backend_core_graph\backend_core_graph\bin\Debug\backend_core_graph.exe.config
+C:\Users\Zeynep\source\repos\backend_core_graph\backend_core_graph\bin\Debug\backend_core_graph.exe
+C:\Users\Zeynep\source\repos\backend_core_graph\backend_core_graph\bin\Debug\backend_core_graph.pdb
+C:\Users\Zeynep\source\repos\backend_core_graph\backend_core_graph\obj\Debug\backend_core_graph.csproj.AssemblyReference.cache
+C:\Users\Zeynep\source\repos\backend_core_graph\backend_core_graph\obj\Debug\backend_core_graph.csproj.CoreCompileInputs.cache
+C:\Users\Zeynep\source\repos\backend_core_graph\backend_core_graph\obj\Debug\backend_core_graph.exe
+C:\Users\Zeynep\source\repos\backend_core_graph\backend_core_graph\obj\Debug\backend_core_graph.pdb
