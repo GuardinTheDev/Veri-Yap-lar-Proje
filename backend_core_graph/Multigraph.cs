@@ -21,7 +21,7 @@ namespace backend_core_graph
             hatlar.Add(hat);
         }
 
-        public List<Hat> KomsularGetir(int durakid)
+        public List<Hat> KomsuHatlarGetir(int durakid)
         {
             List<Hat> sonuc = new List<Hat>();
             for (int i = 0; i < hatlar.Count; i++)
