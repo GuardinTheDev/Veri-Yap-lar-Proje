@@ -1,6 +1,6 @@
 # ignore binaries
-/NET9_backend_core_graph/bin/
-/NET9_backend_core_graph/obj/
+/backend_core_graph/bin/
+/backend_core_graph/obj/
 
 # Prerequisites
 *.d
