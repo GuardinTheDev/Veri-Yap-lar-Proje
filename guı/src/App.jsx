@@ -1,39 +1,105 @@
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import sehirVerisi from './mockData.json';
+import React, { useState , useEffect } from 'react';
 
 function App() {
-  // Haritanın başlangıçta odaklanacağı merkez noktası şimdilik istanbul
+  // Haritanın başlangıçta odaklanacağı merkez noktası
   const merkezKoordinat = [40.301667820187355, 28.869718407243724];
 
   // Hatlar
-  const cizgiler = sehirVerisi.hatlar.map(hat => {
-    const kaynakDurak = sehirVerisi.duraklar.find(d => d.id === hat.kaynak);
-    const hedefDurak = sehirVerisi.duraklar.find(d => d.id === hat.hedef);
-    return [
-      [kaynakDurak.lat, kaynakDurak.lng],
-      [hedefDurak.lat, hedefDurak.lng]
-    ];
-  });
+  // Inputlardan gelecek verileri ve çizilecek rotayı tutan state'ler
+  const [baslangic, setBaslangic] = useState('');
+  const [hedef, setHedef] = useState('');
+  const [gercekRota, setGercekRota] = useState([]);
+
+  const [sehirVerisi, setSehirVerisi] = useState({ duraklar: [] });
+
+  useEffect(() => {
+    const dataUrl = "https://raw.githubusercontent.com/GuardinTheDev/Veri-Yap-lar-Proje/refs/heads/feature/data-generator/python_scripts/test_sehir.json";
+
+    fetch(dataUrl)
+        .then(response => response.json())
+        .then(data => {
+          setSehirVerisi({ duraklar: data });
+        })
+        .catch(error => {
+          console.error("Veri çekilirken hata oluştu:", error);
+        });
+  }, []);
+
+  // API'ye istek atacak fonksiyon
+  const rotayiBul = async () => {
+    const kaynakDurak = sehirVerisi.duraklar.find(d => d.id === baslangic);
+    const hedefDurak = sehirVerisi.duraklar.find(d => d.id === hedef);
+
+    if (!baslangic || !hedef) {
+      alert("Lütfen hem başlangıç hem de hedef durağını listeden seçin.");
+      return;
+    }
+
+    if (!kaynakDurak || !hedefDurak) {
+      alert("Seçilen durakların koordinatları bulunamadı.");
+      return;
+    }
+
+    // OSRM API URL'si
+    const url = `https://router.project-osrm.org/route/v1/driving/${kaynakDurak.x},${kaynakDurak.y};${hedefDurak.x},${hedefDurak.y}?overview=full&geometries=geojson`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.routes && data.routes.length > 0) {
+        // Leaflet [Enlem, Boylam] formatı istediği için API'den gelen veriyi ters çeviriyoruz
+        const koordinatlar = data.routes[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
+        setGercekRota(koordinatlar);
+      }
+    } catch (error) {
+      console.error("Hata:", error);
+    }
+  };
 
   return (
       <div style={{ display: 'flex', height: '100vh', margin: 0, fontFamily: 'sans-serif' }}>
 
-        {/* SOL PANEL: Kontroller */}
+        {/* SOL PANEL */}
         <div style={{ width: '300px', backgroundColor: '#f8f9fa', padding: '20px', boxShadow: '2px 0 5px rgba(0,0,0,0.1)', zIndex: 1000 }}>
           <h2 style={{ color: '#333' }}>Akıllı Navigasyon</h2>
 
           <div style={{ marginTop: '20px' }}>
             <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Başlangıç Durağı:</label>
-            <input type="text" placeholder="Örn: D1" style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }} />
+            <select
+                value={baslangic}
+                onChange={(e) => setBaslangic(e.target.value)}
+                style={{ width: '100%', padding: '8px', boxSizing: 'border-box', cursor: 'pointer' }}
+            >
+              <option value="">Bir durak seçiniz...</option>
+              {sehirVerisi.duraklar?.map((durak) => (
+                  <option key={durak.id} value={durak.id}>
+                    Durak {durak.id}
+                  </option>
+              ))}
+            </select>
           </div>
 
           <div style={{ marginTop: '15px' }}>
             <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Hedef Durak:</label>
-            <input type="text" placeholder="Örn: D3" style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }} />
+            <select
+                value={hedef}
+                onChange={(e) => setHedef(e.target.value)}
+                style={{ width: '100%', padding: '8px', boxSizing: 'border-box', cursor: 'pointer' }}
+            >
+              <option value="">Bir durak seçiniz...</option>
+              {sehirVerisi.duraklar?.map((durak) => (
+                  <option key={durak.id} value={durak.id}>
+                    Durak {durak.id}
+                  </option>
+              ))}
+            </select>
           </div>
 
-          <button style={{ marginTop: '25px', width: '100%', padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+          <button
+              onClick={rotayiBul}
+              style={{ marginTop: '25px', width: '100%', padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
             Rotayı Bul
           </button>
         </div>
@@ -48,8 +114,8 @@ function App() {
             />
 
             {/* Durakları Çiz */}
-            {sehirVerisi.duraklar.map(durak => (
-                <Marker key={durak.id} position={[durak.lat, durak.lng]}>
+            {sehirVerisi.duraklar?.map(durak => (
+                <Marker key={durak.id} position={[durak.y, durak.x]}>
                   <Popup>
                     <strong>{durak.isim}</strong> <br /> ID: {durak.id}
                   </Popup>
@@ -57,7 +123,10 @@ function App() {
             ))}
 
             {/* Hatları Çiz */}
-            <Polyline positions={cizgiler} color="blue" weight={3} opacity={0.6} />
+            {/* Sadece rota hesaplandıysa gerçek rotayı çiz */}
+            {gercekRota.length > 0 && (
+                <Polyline positions={gercekRota} color="#FF0000" weight={5} opacity={0.8} />
+            )}
           </MapContainer>
         </div>
 
