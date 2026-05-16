@@ -1,0 +1,2452 @@
+[
+    {
+        "HatAd": "38T",
+        "Mesafe": 6.04,
+        "Sure": 16.8,
+        "BaslangicID": 1,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 6.04,
+        "Sure": 16.8,
+        "BaslangicID": 3,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 7.95,
+        "Sure": 21.0,
+        "BaslangicID": 1,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 7.95,
+        "Sure": 21.0,
+        "BaslangicID": 5,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 7.95,
+        "Sure": 10.4,
+        "BaslangicID": 1,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 7.95,
+        "Sure": 10.4,
+        "BaslangicID": 5,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.67,
+        "Sure": 11.1,
+        "BaslangicID": 1,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.67,
+        "Sure": 11.1,
+        "BaslangicID": 6,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 4.48,
+        "Sure": 5.6,
+        "BaslangicID": 1,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 4.48,
+        "Sure": 5.6,
+        "BaslangicID": 7,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 6.73,
+        "Sure": 11.8,
+        "BaslangicID": 1,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 6.73,
+        "Sure": 11.8,
+        "BaslangicID": 8,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 6.73,
+        "Sure": 13.7,
+        "BaslangicID": 1,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 6.73,
+        "Sure": 13.7,
+        "BaslangicID": 8,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.75,
+        "Sure": 10.3,
+        "BaslangicID": 1,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.75,
+        "Sure": 10.3,
+        "BaslangicID": 9,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 5.75,
+        "Sure": 7.5,
+        "BaslangicID": 1,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 5.75,
+        "Sure": 7.5,
+        "BaslangicID": 10,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 5.75,
+        "Sure": 17.2,
+        "BaslangicID": 1,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 5.75,
+        "Sure": 17.2,
+        "BaslangicID": 10,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 9.4,
+        "Sure": 21.2,
+        "BaslangicID": 1,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 9.4,
+        "Sure": 21.2,
+        "BaslangicID": 11,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 4.33,
+        "Sure": 5.4,
+        "BaslangicID": 1,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 4.33,
+        "Sure": 5.4,
+        "BaslangicID": 12,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 4.33,
+        "Sure": 12.5,
+        "BaslangicID": 1,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 4.33,
+        "Sure": 12.5,
+        "BaslangicID": 12,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.97,
+        "Sure": 7.6,
+        "BaslangicID": 1,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.97,
+        "Sure": 7.6,
+        "BaslangicID": 13,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 9.23,
+        "Sure": 12.8,
+        "BaslangicID": 1,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 9.23,
+        "Sure": 12.8,
+        "BaslangicID": 14,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 9.23,
+        "Sure": 11.4,
+        "BaslangicID": 1,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 9.23,
+        "Sure": 11.4,
+        "BaslangicID": 14,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 4.86,
+        "Sure": 6.2,
+        "BaslangicID": 1,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 4.86,
+        "Sure": 6.2,
+        "BaslangicID": 17,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 4.86,
+        "Sure": 7.3,
+        "BaslangicID": 1,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 4.86,
+        "Sure": 7.3,
+        "BaslangicID": 17,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 3.06,
+        "Sure": 4.2,
+        "BaslangicID": 1,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 3.06,
+        "Sure": 4.2,
+        "BaslangicID": 19,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 6.6,
+        "Sure": 12.5,
+        "BaslangicID": 1,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 6.6,
+        "Sure": 12.5,
+        "BaslangicID": 20,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 6.6,
+        "Sure": 9.8,
+        "BaslangicID": 1,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 6.6,
+        "Sure": 9.8,
+        "BaslangicID": 20,
+        "HedefID": 1
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 4.29,
+        "Sure": 5.8,
+        "BaslangicID": 2,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 4.29,
+        "Sure": 5.8,
+        "BaslangicID": 3,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 4.29,
+        "Sure": 7.5,
+        "BaslangicID": 2,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 4.29,
+        "Sure": 7.5,
+        "BaslangicID": 3,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 9.06,
+        "Sure": 17.0,
+        "BaslangicID": 2,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 9.06,
+        "Sure": 17.0,
+        "BaslangicID": 4,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 9.06,
+        "Sure": 17.6,
+        "BaslangicID": 2,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 9.06,
+        "Sure": 17.6,
+        "BaslangicID": 4,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 7.07,
+        "Sure": 15.4,
+        "BaslangicID": 2,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 7.07,
+        "Sure": 15.4,
+        "BaslangicID": 6,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.07,
+        "Sure": 12.6,
+        "BaslangicID": 2,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.07,
+        "Sure": 12.6,
+        "BaslangicID": 6,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 6.87,
+        "Sure": 8.7,
+        "BaslangicID": 2,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 6.87,
+        "Sure": 8.7,
+        "BaslangicID": 7,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 6.87,
+        "Sure": 20.1,
+        "BaslangicID": 2,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 6.87,
+        "Sure": 20.1,
+        "BaslangicID": 7,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 3.91,
+        "Sure": 5.8,
+        "BaslangicID": 2,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 3.91,
+        "Sure": 5.8,
+        "BaslangicID": 8,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 3.91,
+        "Sure": 7.0,
+        "BaslangicID": 2,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 3.91,
+        "Sure": 7.0,
+        "BaslangicID": 8,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 2.51,
+        "Sure": 3.2,
+        "BaslangicID": 2,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 2.51,
+        "Sure": 3.2,
+        "BaslangicID": 9,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 2.51,
+        "Sure": 6.9,
+        "BaslangicID": 2,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 2.51,
+        "Sure": 6.9,
+        "BaslangicID": 9,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 9.75,
+        "Sure": 15.9,
+        "BaslangicID": 2,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 9.75,
+        "Sure": 15.9,
+        "BaslangicID": 10,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 7.65,
+        "Sure": 12.8,
+        "BaslangicID": 2,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 7.65,
+        "Sure": 12.8,
+        "BaslangicID": 11,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 4.07,
+        "Sure": 7.5,
+        "BaslangicID": 2,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 4.07,
+        "Sure": 7.5,
+        "BaslangicID": 13,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 2.02,
+        "Sure": 3.1,
+        "BaslangicID": 2,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 2.02,
+        "Sure": 3.1,
+        "BaslangicID": 15,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 4.03,
+        "Sure": 5.0,
+        "BaslangicID": 2,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 4.03,
+        "Sure": 5.0,
+        "BaslangicID": 16,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 4.03,
+        "Sure": 6.0,
+        "BaslangicID": 2,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 4.03,
+        "Sure": 6.0,
+        "BaslangicID": 16,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 9.0,
+        "Sure": 26.9,
+        "BaslangicID": 2,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 9.0,
+        "Sure": 26.9,
+        "BaslangicID": 17,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 9.0,
+        "Sure": 11.3,
+        "BaslangicID": 2,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 9.0,
+        "Sure": 11.3,
+        "BaslangicID": 17,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 5.08,
+        "Sure": 10.1,
+        "BaslangicID": 2,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 5.08,
+        "Sure": 10.1,
+        "BaslangicID": 18,
+        "HedefID": 2
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 7.75,
+        "Sure": 14.9,
+        "BaslangicID": 3,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 7.75,
+        "Sure": 14.9,
+        "BaslangicID": 4,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 7.23,
+        "Sure": 9.9,
+        "BaslangicID": 3,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 7.23,
+        "Sure": 9.9,
+        "BaslangicID": 6,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 4.43,
+        "Sure": 6.6,
+        "BaslangicID": 3,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 4.43,
+        "Sure": 6.6,
+        "BaslangicID": 7,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 3.0,
+        "Sure": 4.0,
+        "BaslangicID": 3,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 3.0,
+        "Sure": 4.0,
+        "BaslangicID": 8,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 2.79,
+        "Sure": 5.8,
+        "BaslangicID": 3,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 2.79,
+        "Sure": 5.8,
+        "BaslangicID": 9,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 2.79,
+        "Sure": 4.5,
+        "BaslangicID": 3,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 2.79,
+        "Sure": 4.5,
+        "BaslangicID": 9,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.76,
+        "Sure": 20.5,
+        "BaslangicID": 3,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.76,
+        "Sure": 20.5,
+        "BaslangicID": 10,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 8.04,
+        "Sure": 12.5,
+        "BaslangicID": 3,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 8.04,
+        "Sure": 12.5,
+        "BaslangicID": 11,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 1.54,
+        "Sure": 1.9,
+        "BaslangicID": 3,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 1.54,
+        "Sure": 1.9,
+        "BaslangicID": 13,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 1.54,
+        "Sure": 1.9,
+        "BaslangicID": 3,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 1.54,
+        "Sure": 1.9,
+        "BaslangicID": 13,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 4.51,
+        "Sure": 8.9,
+        "BaslangicID": 3,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 4.51,
+        "Sure": 8.9,
+        "BaslangicID": 15,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 4.51,
+        "Sure": 6.5,
+        "BaslangicID": 3,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 4.51,
+        "Sure": 6.5,
+        "BaslangicID": 15,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 6.34,
+        "Sure": 13.8,
+        "BaslangicID": 3,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 6.34,
+        "Sure": 13.8,
+        "BaslangicID": 16,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 6.34,
+        "Sure": 7.9,
+        "BaslangicID": 3,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 6.34,
+        "Sure": 7.9,
+        "BaslangicID": 16,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 4.9,
+        "Sure": 6.2,
+        "BaslangicID": 3,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 4.9,
+        "Sure": 6.2,
+        "BaslangicID": 17,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.11,
+        "Sure": 11.4,
+        "BaslangicID": 3,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.11,
+        "Sure": 11.4,
+        "BaslangicID": 18,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 8.38,
+        "Sure": 24.5,
+        "BaslangicID": 3,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 8.38,
+        "Sure": 24.5,
+        "BaslangicID": 19,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 8.38,
+        "Sure": 18.3,
+        "BaslangicID": 3,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 8.38,
+        "Sure": 18.3,
+        "BaslangicID": 19,
+        "HedefID": 3
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 9.68,
+        "Sure": 21.4,
+        "BaslangicID": 4,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 9.68,
+        "Sure": 21.4,
+        "BaslangicID": 9,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 9.24,
+        "Sure": 22.8,
+        "BaslangicID": 4,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 9.24,
+        "Sure": 22.8,
+        "BaslangicID": 13,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 9.24,
+        "Sure": 17.4,
+        "BaslangicID": 4,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 9.24,
+        "Sure": 17.4,
+        "BaslangicID": 13,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.27,
+        "Sure": 13.5,
+        "BaslangicID": 4,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.27,
+        "Sure": 13.5,
+        "BaslangicID": 15,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.27,
+        "Sure": 9.1,
+        "BaslangicID": 4,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.27,
+        "Sure": 9.1,
+        "BaslangicID": 15,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 7.1,
+        "Sure": 20.7,
+        "BaslangicID": 4,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 7.1,
+        "Sure": 20.7,
+        "BaslangicID": 17,
+        "HedefID": 4
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 8.78,
+        "Sure": 10.6,
+        "BaslangicID": 5,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 8.78,
+        "Sure": 10.6,
+        "BaslangicID": 7,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 6.11,
+        "Sure": 8.2,
+        "BaslangicID": 5,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 6.11,
+        "Sure": 8.2,
+        "BaslangicID": 10,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 7.71,
+        "Sure": 12.1,
+        "BaslangicID": 5,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 7.71,
+        "Sure": 12.1,
+        "BaslangicID": 12,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 2.66,
+        "Sure": 3.9,
+        "BaslangicID": 5,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 2.66,
+        "Sure": 3.9,
+        "BaslangicID": 14,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 2.66,
+        "Sure": 3.5,
+        "BaslangicID": 5,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 2.66,
+        "Sure": 3.5,
+        "BaslangicID": 14,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 8.84,
+        "Sure": 12.3,
+        "BaslangicID": 5,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 8.84,
+        "Sure": 12.3,
+        "BaslangicID": 19,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 8.84,
+        "Sure": 23.4,
+        "BaslangicID": 5,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 8.84,
+        "Sure": 23.4,
+        "BaslangicID": 19,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 2.21,
+        "Sure": 3.1,
+        "BaslangicID": 5,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 2.21,
+        "Sure": 3.1,
+        "BaslangicID": 20,
+        "HedefID": 5
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 4.29,
+        "Sure": 6.0,
+        "BaslangicID": 6,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 4.29,
+        "Sure": 6.0,
+        "BaslangicID": 7,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 4.29,
+        "Sure": 5.2,
+        "BaslangicID": 6,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 4.29,
+        "Sure": 5.2,
+        "BaslangicID": 8,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 5.26,
+        "Sure": 7.5,
+        "BaslangicID": 6,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 5.26,
+        "Sure": 7.5,
+        "BaslangicID": 9,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 5.26,
+        "Sure": 11.7,
+        "BaslangicID": 6,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 5.26,
+        "Sure": 11.7,
+        "BaslangicID": 9,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 4.39,
+        "Sure": 5.6,
+        "BaslangicID": 6,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 4.39,
+        "Sure": 5.6,
+        "BaslangicID": 10,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 0.83,
+        "Sure": 1.4,
+        "BaslangicID": 6,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 0.83,
+        "Sure": 1.4,
+        "BaslangicID": 11,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 0.83,
+        "Sure": 1.2,
+        "BaslangicID": 6,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 0.83,
+        "Sure": 1.2,
+        "BaslangicID": 11,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 5.69,
+        "Sure": 7.8,
+        "BaslangicID": 6,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 5.69,
+        "Sure": 7.8,
+        "BaslangicID": 13,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 5.69,
+        "Sure": 7.2,
+        "BaslangicID": 6,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 5.69,
+        "Sure": 7.2,
+        "BaslangicID": 13,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 9.1,
+        "Sure": 25.2,
+        "BaslangicID": 6,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 9.1,
+        "Sure": 25.2,
+        "BaslangicID": 14,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 8.97,
+        "Sure": 13.7,
+        "BaslangicID": 6,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 8.97,
+        "Sure": 13.7,
+        "BaslangicID": 15,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 3.8,
+        "Sure": 9.8,
+        "BaslangicID": 6,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 3.8,
+        "Sure": 9.8,
+        "BaslangicID": 16,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 3.8,
+        "Sure": 10.9,
+        "BaslangicID": 6,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 3.8,
+        "Sure": 10.9,
+        "BaslangicID": 16,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 5.02,
+        "Sure": 13.1,
+        "BaslangicID": 6,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 5.02,
+        "Sure": 13.1,
+        "BaslangicID": 18,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.02,
+        "Sure": 8.4,
+        "BaslangicID": 6,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.02,
+        "Sure": 8.4,
+        "BaslangicID": 18,
+        "HedefID": 6
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 2.98,
+        "Sure": 4.6,
+        "BaslangicID": 7,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 2.98,
+        "Sure": 4.6,
+        "BaslangicID": 8,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 4.36,
+        "Sure": 8.1,
+        "BaslangicID": 7,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 4.36,
+        "Sure": 8.1,
+        "BaslangicID": 9,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 3.32,
+        "Sure": 7.4,
+        "BaslangicID": 7,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 3.32,
+        "Sure": 7.4,
+        "BaslangicID": 10,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 5.08,
+        "Sure": 8.0,
+        "BaslangicID": 7,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 5.08,
+        "Sure": 8.0,
+        "BaslangicID": 11,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.62,
+        "Sure": 21.2,
+        "BaslangicID": 7,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.62,
+        "Sure": 21.2,
+        "BaslangicID": 12,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 3.24,
+        "Sure": 4.8,
+        "BaslangicID": 7,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 3.24,
+        "Sure": 4.8,
+        "BaslangicID": 13,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 8.73,
+        "Sure": 11.7,
+        "BaslangicID": 7,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 8.73,
+        "Sure": 11.7,
+        "BaslangicID": 14,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 8.11,
+        "Sure": 11.1,
+        "BaslangicID": 7,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 8.11,
+        "Sure": 11.1,
+        "BaslangicID": 15,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 6.02,
+        "Sure": 8.1,
+        "BaslangicID": 7,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 6.02,
+        "Sure": 8.1,
+        "BaslangicID": 16,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 7.11,
+        "Sure": 8.6,
+        "BaslangicID": 7,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 7.11,
+        "Sure": 8.6,
+        "BaslangicID": 17,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 7.88,
+        "Sure": 10.1,
+        "BaslangicID": 7,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 7.88,
+        "Sure": 10.1,
+        "BaslangicID": 18,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 7.54,
+        "Sure": 10.9,
+        "BaslangicID": 7,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 7.54,
+        "Sure": 10.9,
+        "BaslangicID": 19,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 8.53,
+        "Sure": 13.5,
+        "BaslangicID": 7,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 8.53,
+        "Sure": 13.5,
+        "BaslangicID": 20,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 8.53,
+        "Sure": 24.6,
+        "BaslangicID": 7,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 8.53,
+        "Sure": 24.6,
+        "BaslangicID": 20,
+        "HedefID": 7
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 1.42,
+        "Sure": 3.2,
+        "BaslangicID": 8,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 1.42,
+        "Sure": 3.2,
+        "BaslangicID": 9,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 5.9,
+        "Sure": 9.4,
+        "BaslangicID": 8,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 5.9,
+        "Sure": 9.4,
+        "BaslangicID": 10,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 5.9,
+        "Sure": 12.1,
+        "BaslangicID": 8,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 5.9,
+        "Sure": 12.1,
+        "BaslangicID": 10,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 5.08,
+        "Sure": 9.3,
+        "BaslangicID": 8,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 5.08,
+        "Sure": 9.3,
+        "BaslangicID": 11,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 5.08,
+        "Sure": 7.5,
+        "BaslangicID": 8,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 5.08,
+        "Sure": 7.5,
+        "BaslangicID": 11,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 1.5,
+        "Sure": 1.8,
+        "BaslangicID": 8,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 1.5,
+        "Sure": 1.8,
+        "BaslangicID": 13,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 1.5,
+        "Sure": 2.2,
+        "BaslangicID": 8,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 1.5,
+        "Sure": 2.2,
+        "BaslangicID": 13,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 5.34,
+        "Sure": 14.6,
+        "BaslangicID": 8,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 5.34,
+        "Sure": 14.6,
+        "BaslangicID": 15,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 5.34,
+        "Sure": 6.6,
+        "BaslangicID": 8,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 5.34,
+        "Sure": 6.6,
+        "BaslangicID": 15,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 3.78,
+        "Sure": 10.3,
+        "BaslangicID": 8,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 3.78,
+        "Sure": 10.3,
+        "BaslangicID": 16,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 7.47,
+        "Sure": 14.2,
+        "BaslangicID": 8,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 7.47,
+        "Sure": 14.2,
+        "BaslangicID": 17,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 7.47,
+        "Sure": 14.1,
+        "BaslangicID": 8,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 7.47,
+        "Sure": 14.1,
+        "BaslangicID": 17,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.68,
+        "Sure": 12.3,
+        "BaslangicID": 8,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.68,
+        "Sure": 12.3,
+        "BaslangicID": 18,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 5.68,
+        "Sure": 8.7,
+        "BaslangicID": 8,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 5.68,
+        "Sure": 8.7,
+        "BaslangicID": 18,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 9.63,
+        "Sure": 20.9,
+        "BaslangicID": 8,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 9.63,
+        "Sure": 20.9,
+        "BaslangicID": 19,
+        "HedefID": 8
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 7.32,
+        "Sure": 13.7,
+        "BaslangicID": 9,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 7.32,
+        "Sure": 13.7,
+        "BaslangicID": 10,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 7.32,
+        "Sure": 10.5,
+        "BaslangicID": 9,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 7.32,
+        "Sure": 10.5,
+        "BaslangicID": 10,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 5.98,
+        "Sure": 15.6,
+        "BaslangicID": 9,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 5.98,
+        "Sure": 15.6,
+        "BaslangicID": 11,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.98,
+        "Sure": 15.8,
+        "BaslangicID": 9,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.98,
+        "Sure": 15.8,
+        "BaslangicID": 11,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 1.84,
+        "Sure": 2.4,
+        "BaslangicID": 9,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 1.84,
+        "Sure": 2.4,
+        "BaslangicID": 13,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 1.84,
+        "Sure": 2.3,
+        "BaslangicID": 9,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 1.84,
+        "Sure": 2.3,
+        "BaslangicID": 13,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 3.95,
+        "Sure": 6.1,
+        "BaslangicID": 9,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 3.95,
+        "Sure": 6.1,
+        "BaslangicID": 15,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 3.57,
+        "Sure": 6.4,
+        "BaslangicID": 9,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 3.57,
+        "Sure": 6.4,
+        "BaslangicID": 16,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 3.57,
+        "Sure": 6.7,
+        "BaslangicID": 9,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 3.57,
+        "Sure": 6.7,
+        "BaslangicID": 16,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 7.66,
+        "Sure": 13.2,
+        "BaslangicID": 9,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 7.66,
+        "Sure": 13.2,
+        "BaslangicID": 17,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 5.32,
+        "Sure": 7.9,
+        "BaslangicID": 9,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 5.32,
+        "Sure": 7.9,
+        "BaslangicID": 18,
+        "HedefID": 9
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 4.79,
+        "Sure": 7.0,
+        "BaslangicID": 10,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 4.79,
+        "Sure": 7.0,
+        "BaslangicID": 11,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 4.79,
+        "Sure": 5.9,
+        "BaslangicID": 10,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 4.79,
+        "Sure": 5.9,
+        "BaslangicID": 11,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 8.79,
+        "Sure": 16.7,
+        "BaslangicID": 10,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 8.79,
+        "Sure": 16.7,
+        "BaslangicID": 12,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 8.79,
+        "Sure": 22.9,
+        "BaslangicID": 10,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 8.79,
+        "Sure": 22.9,
+        "BaslangicID": 12,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 6.51,
+        "Sure": 13.3,
+        "BaslangicID": 10,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 6.51,
+        "Sure": 13.3,
+        "BaslangicID": 13,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 5.52,
+        "Sure": 6.7,
+        "BaslangicID": 10,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 5.52,
+        "Sure": 6.7,
+        "BaslangicID": 14,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 5.52,
+        "Sure": 9.5,
+        "BaslangicID": 10,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 5.52,
+        "Sure": 9.5,
+        "BaslangicID": 14,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 7.72,
+        "Sure": 10.8,
+        "BaslangicID": 10,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 7.72,
+        "Sure": 10.8,
+        "BaslangicID": 16,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 9.78,
+        "Sure": 22.7,
+        "BaslangicID": 10,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 9.78,
+        "Sure": 22.7,
+        "BaslangicID": 17,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 9.78,
+        "Sure": 13.3,
+        "BaslangicID": 10,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 9.78,
+        "Sure": 13.3,
+        "BaslangicID": 17,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 9.27,
+        "Sure": 24.4,
+        "BaslangicID": 10,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 9.27,
+        "Sure": 24.4,
+        "BaslangicID": 18,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.47,
+        "Sure": 10.4,
+        "BaslangicID": 10,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.47,
+        "Sure": 10.4,
+        "BaslangicID": 19,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 6.56,
+        "Sure": 13.8,
+        "BaslangicID": 10,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 6.56,
+        "Sure": 13.8,
+        "BaslangicID": 20,
+        "HedefID": 10
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 6.5,
+        "Sure": 14.1,
+        "BaslangicID": 11,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 6.5,
+        "Sure": 14.1,
+        "BaslangicID": 13,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 6.5,
+        "Sure": 9.1,
+        "BaslangicID": 11,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 6.5,
+        "Sure": 9.1,
+        "BaslangicID": 13,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 9.11,
+        "Sure": 18.4,
+        "BaslangicID": 11,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 9.11,
+        "Sure": 18.4,
+        "BaslangicID": 14,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 9.58,
+        "Sure": 24.0,
+        "BaslangicID": 11,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 9.58,
+        "Sure": 24.0,
+        "BaslangicID": 15,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 9.58,
+        "Sure": 12.6,
+        "BaslangicID": 11,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 9.58,
+        "Sure": 12.6,
+        "BaslangicID": 15,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 4.1,
+        "Sure": 7.9,
+        "BaslangicID": 11,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 4.1,
+        "Sure": 7.9,
+        "BaslangicID": 16,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 5.02,
+        "Sure": 14.6,
+        "BaslangicID": 11,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 5.02,
+        "Sure": 14.6,
+        "BaslangicID": 18,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 5.02,
+        "Sure": 13.2,
+        "BaslangicID": 11,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 5.02,
+        "Sure": 13.2,
+        "BaslangicID": 18,
+        "HedefID": 11
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 9.96,
+        "Sure": 17.9,
+        "BaslangicID": 12,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 9.96,
+        "Sure": 17.9,
+        "BaslangicID": 14,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 9.96,
+        "Sure": 28.9,
+        "BaslangicID": 12,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 9.96,
+        "Sure": 28.9,
+        "BaslangicID": 14,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.3,
+        "Sure": 10.2,
+        "BaslangicID": 12,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 7.3,
+        "Sure": 10.2,
+        "BaslangicID": 17,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 2.06,
+        "Sure": 3.3,
+        "BaslangicID": 12,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 2.06,
+        "Sure": 3.3,
+        "BaslangicID": 19,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 2.06,
+        "Sure": 2.5,
+        "BaslangicID": 12,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 2.06,
+        "Sure": 2.5,
+        "BaslangicID": 19,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 5.59,
+        "Sure": 7.5,
+        "BaslangicID": 12,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 5.59,
+        "Sure": 7.5,
+        "BaslangicID": 20,
+        "HedefID": 12
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 4.96,
+        "Sure": 6.7,
+        "BaslangicID": 13,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "38T",
+        "Mesafe": 4.96,
+        "Sure": 6.7,
+        "BaslangicID": 15,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 4.96,
+        "Sure": 9.7,
+        "BaslangicID": 13,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 4.96,
+        "Sure": 9.7,
+        "BaslangicID": 15,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 5.12,
+        "Sure": 9.1,
+        "BaslangicID": 13,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 5.12,
+        "Sure": 9.1,
+        "BaslangicID": 16,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 6.03,
+        "Sure": 12.8,
+        "BaslangicID": 13,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 6.03,
+        "Sure": 12.8,
+        "BaslangicID": 17,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 6.03,
+        "Sure": 7.3,
+        "BaslangicID": 13,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "F1",
+        "Mesafe": 6.03,
+        "Sure": 7.3,
+        "BaslangicID": 17,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 6.98,
+        "Sure": 17.6,
+        "BaslangicID": 13,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "F2",
+        "Mesafe": 6.98,
+        "Sure": 17.6,
+        "BaslangicID": 18,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 6.98,
+        "Sure": 8.4,
+        "BaslangicID": 13,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "M2",
+        "Mesafe": 6.98,
+        "Sure": 8.4,
+        "BaslangicID": 18,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 8.68,
+        "Sure": 11.5,
+        "BaslangicID": 13,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "T1",
+        "Mesafe": 8.68,
+        "Sure": 11.5,
+        "BaslangicID": 19,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.68,
+        "Sure": 11.9,
+        "BaslangicID": 13,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 8.68,
+        "Sure": 11.9,
+        "BaslangicID": 19,
+        "HedefID": 13
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 4.77,
+        "Sure": 12.1,
+        "BaslangicID": 14,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 4.77,
+        "Sure": 12.1,
+        "BaslangicID": 20,
+        "HedefID": 14
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 6.05,
+        "Sure": 16.4,
+        "BaslangicID": 15,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 6.05,
+        "Sure": 16.4,
+        "BaslangicID": 16,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 8.55,
+        "Sure": 12.7,
+        "BaslangicID": 15,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "3C",
+        "Mesafe": 8.55,
+        "Sure": 12.7,
+        "BaslangicID": 17,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 8.55,
+        "Sure": 16.9,
+        "BaslangicID": 15,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "55K",
+        "Mesafe": 8.55,
+        "Sure": 16.9,
+        "BaslangicID": 17,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 6.98,
+        "Sure": 11.0,
+        "BaslangicID": 15,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "M1",
+        "Mesafe": 6.98,
+        "Sure": 11.0,
+        "BaslangicID": 18,
+        "HedefID": 15
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 1.91,
+        "Sure": 4.8,
+        "BaslangicID": 16,
+        "HedefID": 18
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 1.91,
+        "Sure": 4.8,
+        "BaslangicID": 18,
+        "HedefID": 16
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.24,
+        "Sure": 7.3,
+        "BaslangicID": 17,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "11A",
+        "Mesafe": 5.24,
+        "Sure": 7.3,
+        "BaslangicID": 19,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 5.24,
+        "Sure": 7.9,
+        "BaslangicID": 17,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "T2",
+        "Mesafe": 5.24,
+        "Sure": 7.9,
+        "BaslangicID": 19,
+        "HedefID": 17
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 6.92,
+        "Sure": 10.5,
+        "BaslangicID": 19,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "45A",
+        "Mesafe": 6.92,
+        "Sure": 10.5,
+        "BaslangicID": 20,
+        "HedefID": 19
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 6.92,
+        "Sure": 14.7,
+        "BaslangicID": 19,
+        "HedefID": 20
+    },
+    {
+        "HatAd": "22D",
+        "Mesafe": 6.92,
+        "Sure": 14.7,
+        "BaslangicID": 20,
+        "HedefID": 19
+    }
+]
