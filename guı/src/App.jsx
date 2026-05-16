@@ -12,19 +12,19 @@ function App() {
   const [hedef, setHedef] = useState('');
   const [gercekRota, setGercekRota] = useState([]);
 
-  const [sehirVerisi, setSehirVerisi] = useState({ duraklar: [] });
+  const [sehirVerisi, setSehirVerisi] = useState({ duraklar: [], hatlar: [] });
 
   useEffect(() => {
-    const dataUrl = "https://raw.githubusercontent.com/GuardinTheDev/Veri-Yap-lar-Proje/refs/heads/feature/data-generator/python_scripts/test_sehir.json";
+    const dataUrl = "http://localhost:8000/duraklar";
 
-    fetch(dataUrl)
-        .then(response => response.json())
-        .then(data => {
-          setSehirVerisi({ duraklar: data });
+    Promise.all([
+      fetch("http://localhost:8000/duraklar").then(res => res.json()),
+      fetch("http://localhost:8000/hatlar").then(res => res.json())
+    ])
+        .then(([duraklarData, hatlarData]) => {
+          setSehirVerisi({ duraklar: duraklarData, hatlar: hatlarData });
         })
-        .catch(error => {
-          console.error("Veri çekilirken hata oluştu:", error);
-        });
+        .catch(error => console.error("Veri çekilirken hata:", error));
   }, []);
 
   // API'ye istek atacak fonksiyon
@@ -72,11 +72,10 @@ function App() {
                 onChange={(e) => setBaslangic(e.target.value)}
                 style={{ width: '100%', padding: '8px', boxSizing: 'border-box', cursor: 'pointer' }}
             >
-              <option value="">Bir durak seçiniz...</option>
               {sehirVerisi.duraklar?.map((durak) => (
-                  <option key={durak.id} value={durak.id}>
-                    Durak {durak.id}
-                  </option>
+              <option key={durak.ID} value={durak.ID}>
+                Durak {durak.ID} - {durak.Ad}
+              </option>
               ))}
             </select>
           </div>
@@ -90,8 +89,8 @@ function App() {
             >
               <option value="">Bir durak seçiniz...</option>
               {sehirVerisi.duraklar?.map((durak) => (
-                  <option key={durak.id} value={durak.id}>
-                    Durak {durak.id}
+                  <option key={durak.ID} value={durak.ID}>
+                    Durak {durak.ID} - {durak.Ad}
                   </option>
               ))}
             </select>
@@ -115,9 +114,9 @@ function App() {
 
             {/* Durakları Çiz */}
             {sehirVerisi.duraklar?.map(durak => (
-                <Marker key={durak.id} position={[durak.y, durak.x]}>
+                <Marker key={durak.ID} position={[durak.Y, durak.X]}>
                   <Popup>
-                    <strong>{durak.isim}</strong> <br /> ID: {durak.id}
+                    <strong>{durak.Ad}</strong> <br /> ID: {durak.ID}
                   </Popup>
                 </Marker>
             ))}
