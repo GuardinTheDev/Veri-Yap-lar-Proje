@@ -1,17 +1,4 @@
-public class KdTree
-{
-    public void Insert(Node node)
-    {
-
-    }
-
-    public Node FindNearest(float x, float y)
-    {
-        return null;
-    }
-}
 using System;
-using backend_core_graph;
 
 namespace backend_core_graph
 {
