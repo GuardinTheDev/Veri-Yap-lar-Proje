@@ -1,6 +1,9 @@
-.vscode
-/backend_core_graph/bin/*
-/backend_core_graph/obj/*
+/backend_core_graph/bin/
+/backend_core_graph/obj/
+
+# IDE/Editor files
+.vscode/
+
 # Prerequisites
 *.d
 
