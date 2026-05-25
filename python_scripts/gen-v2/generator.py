@@ -8,6 +8,7 @@ import numpy as np
 from itertools import product
 import networkx as nx #networkx is for displaying graph
 import string
+import copy
 
 fakegen = Faker()
 
@@ -58,7 +59,7 @@ class WeightedTransitGraph():
         def __init__(self, name: str, parentGraph: WeightedTransitGraph):
             self.lineType = WeightedTransitGraph.TransitLine.TransitLineTypes.LinearLine
             self.name = name
-            self.nodeList = [] 
+            self.lineNodeList = [] 
             self.parentGraph = parentGraph
             self.initialNode = None # id=0 is usually the initial node
             self.id = len(parentGraph.lineList)
@@ -68,19 +69,20 @@ class WeightedTransitGraph():
         class LineStopNode():
             def __init__(self, parentList: WeightedTransitGraph.TransitLine, GraphNode: WeightedTransitGraph.TransitStopNode):
                 self.nextNode = None
-                self.id = len(parentList.nodeList) # id within line
                 self.globalID = GraphNode.id
                 self.parentList = parentList
-                self.parentList.nodeList.append(self)
+                self.parentList.lineNodeList.append(self)
                 self.TransitNode = GraphNode
+                self.id = self.parentList.lineNodeList.index(self)
                 
             def setNextNode(self, nextnode: WeightedTransitGraph.TransitLine.LineStopNode):
                 temp = self.nextNode
                 self.nextNode = nextnode
-                nextnode.nextNode = temp
+                if self.nextNode is not None:
+                    nextnode.nextNode = temp
                 
             def getPreviousNode(self):
-                for x in self.parentList.nodeList:
+                for x in self.parentList.lineNodeList:
                     if x.nextNode == self:
                         return x
                     else:
@@ -93,6 +95,12 @@ class WeightedTransitGraph():
             previousNode.setNextNode(node)
             node.setNextNode(next)
             return node
+        
+        def addInitialNode(self, node: WeightedTransitGraph.TransitStopNode):
+            lineNode = self.LineStopNode(self, node)
+            self.lineNodeList.append(lineNode)
+            self.setInitialNode(lineNode)
+            return lineNode
         
         def getLastNode(self):
             if self.lineType is self.TransitLineTypes.CircularLine:
@@ -126,8 +134,13 @@ class WeightedTransitGraph():
                 prev.setNextNode = next
                 self.nodeList.pop(self.getNodeById(targetNode))
         
-        def convertLineNodeToTransitNode(self, node):
-            pass
+        def convertTransitNodeToLineNode(self, node: WeightedTransitGraph.TransitStopNode, line: WeightedTransitGraph.TransitLine):
+            lineNode: WeightedTransitGraph.TransitLine.LineStopNode
+            print(line)
+            for lineNode in line.lineNodeList:
+                if lineNode.TransitNode is node:
+                    return lineNode
+            raise(IndexError)
         
         def checkIntegrity(self): # check if the linked list is valid
             if len(self.nodeList) == 0: 
@@ -237,10 +250,12 @@ class WeightedTransitGraph():
                 return True
             # max dist is kinda problematic, use at your own risk
 
-            def sampleCoordinatesWithinDistance(stopCount, allPossibleCoordinates):
+            def sampleCoordinatesWithinDistance(stopCount, apc):
+                allPossibleCoordinates = apc
                 while True:
                     coordList = []
                     while True:
+                        print(f"remaining coords:{len(allPossibleCoordinates)}, coordlist length: {len(coordList)}")
                         if len(allPossibleCoordinates)==0:
                             # raise(ValueError)
                             break
@@ -259,6 +274,7 @@ class WeightedTransitGraph():
                         return coordList
             
             coordList = sampleCoordinatesWithinDistance(stopCount, allPossibleCoordinates)
+            print(len(coordList))
 
             for v in coordList:
                 stopName = faker.street_address()
@@ -272,15 +288,11 @@ class WeightedTransitGraph():
                 # self.stopList.append(newStop)
 
                 self.parentGraph.addNode(name=stopName,X=v[0],Y=v[1])
+            print(len(self.parentGraph.nodeList))
         
-        def transcribe(self):
-            sortedStopList = dict(sorted(self.stopList, key="id")) # just in case
-            for stop in sortedStopList:
-                pass
-        
-        def generateRandomLine(self, stopCount: range, maxDist=None):
+        def generateRandomLine(self, stopCount: range, maxDist=-1):
             graph = self.parentGraph
-            list = self.stopList
+            list = copy.deepcopy(graph.nodeList)
             initialNode = list.pop(random.randint(0,len(list)-1))
             Line: WeightedTransitGraph.TransitLine
             characters = string.ascii_letters + string.digits
@@ -288,14 +300,28 @@ class WeightedTransitGraph():
             lineName: str
             lineName = random.choices(characters, k=k)
             Line = graph.addNewLine(lineName)
-            Line.addNodeAfter(initialNode, self.parentGraph.nodeList[initialNode["id"]])
+            currentNode = Line.addInitialNode(initialNode)
             currentNode: WeightedTransitGraph.TransitLine.LineStopNode
-            currentNode = initialNode
-            for _ in range(stopCount-1):
-                currentNode = currentNode.nextNode
+            i = stopCount-1
+            while True:
+                if type(currentNode) is not WeightedTransitGraph.TransitLine.LineStopNode: raise(TypeError)
+                if i == 0:
+                    break
+                sel: WeightedTransitGraph.TransitStopNode
                 sel = list.pop(random.randint(0,len(list)-1))
-                dist = euclideanDistance((sel["x"],sel["y"]), (currentNode.TransitNode.X, currentNode.TransitNode.Y))
+                dist = euclideanDistance((sel.X,sel.Y), (currentNode.TransitNode.X, currentNode.TransitNode.Y))
+                if maxDist != -1:
+                    if dist <= maxDist:
+                        Line.addNodeAfter(currentNode, sel)
+                        i -= 1
+                        currentNode = currentNode.nextNode
+                    else: continue
+                else: 
+                    Line.addNodeAfter(currentNode, sel)
+                    i -= 1
+                    currentNode = currentNode.nextNode
                 
+            # print(Line.lineNodeList)
         
         def plotStops(self):
             G = nx.MultiGraph()
@@ -325,19 +351,23 @@ class WeightedTransitGraph():
 
             x = np.array(x)
             y = np.array(y)
+
+            print(len(self.parentGraph.nodeList))
             #plot1.scatter(x,y)
             #for i, v in enumerate(txt):
             #    plot1.annotate(v, (x[i], y[i]))
             nx.draw(G, pos, with_labels=True)
             plt.show()
+
     def getRandomGenerator(self, coordRange: range):
         rand = self._RandomGenerator(coordRange, self)
         return rand
 
 myGraph = WeightedTransitGraph()
 gen = myGraph.getRandomGenerator((0,200))
-gen.generateStopCoordinates(fakegen, 40, 20)
-print(gen)
+gen.generateStopCoordinates(fakegen, 20, 20)
+gen.generateRandomLine(5)
+# print(gen)
 # print(gen.stopList)
 gen.plotStops()
 print(myGraph.nodeList)
