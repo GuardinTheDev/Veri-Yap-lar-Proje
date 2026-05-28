@@ -17,14 +17,25 @@ namespace backend_core_graph
 
         public void Durak_Ekle(Durak d)
         {
-            Durak_dizisi[Hashfonk(d.ID)] = d;
+            int index = Hashfonk(d.ID);
+            while (Durak_dizisi[index] != null && Durak_dizisi[index].ID != d.ID)
+            {
+                index = (index + 1) % 1009;  // linear probing ekledim.
+            }
+            Durak_dizisi[index] = d;
         }
 
         public Durak Durak_Getir(int id)
         {
-            return Durak_dizisi[Hashfonk(id)];
+            int index = Hashfonk(id);
+            while (Durak_dizisi[index] != null)
+            {
+                if (Durak_dizisi[index].ID == id)
+                    return Durak_dizisi[index];
+                index = (index + 1) % 1009;
+            }
+            return null;
         }
-
 
 
     }
