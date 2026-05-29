@@ -43,7 +43,7 @@ app.MapGet("/api/duraklar", () =>
 app.MapPost("/api/rota-bul", (RotaIstegi istek) =>
 {
     // Kullanıcının React'ten gönderdiği başlangıç ve hedef ID'leri buraya düşer.
-    // İleride burada: Dijkstra.Hesapla(istek.baslangic_id, istek.hedef_id) çalışacak
+    // İleride burada: A* veya dişjkstre çalışacak.
     
     return new { 
         mesaj = "C# API'sine başarıyla ulaştın!",
