@@ -37,7 +37,6 @@ namespace backend_core_graph
             return null;
         }
 
-
         public List<Durak> TumDuraklariGetir()
         {
             List<Durak> doluDuraklar = new List<Durak>();
