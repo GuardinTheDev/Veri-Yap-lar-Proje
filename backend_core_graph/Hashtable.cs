@@ -38,5 +38,18 @@ namespace backend_core_graph
         }
 
 
+        public List<Durak> TumDuraklariGetir()
+        {
+            List<Durak> doluDuraklar = new List<Durak>();
+            foreach (var durak in Durak_dizisi)
+            {
+                if (durak != null) // Boş (null) olmayan gerçek durakları topluyoruz
+                {
+                    doluDuraklar.Add(durak);
+                }
+            }
+            return doluDuraklar;
+        }
+
     }
 }
