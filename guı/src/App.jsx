@@ -34,7 +34,7 @@ function App() {
         // şimdilik sadece durakları güncelliyoruz.
         Promise.all([
             fetch("http://localhost:5000/api/duraklar").then(res => res.json()), // C# API'si!
-            fetch("http://localhost:8000/hatlar").then(res => res.json()) // Bu şimdilik Python'da kalsın veya boş dönsün
+            Promise.resolve([])
         ])
             .then(([duraklarData, hatlarData]) => {
                 setSehirVerisi({ duraklar: duraklarData, hatlar: hatlarData });
