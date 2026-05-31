@@ -20,6 +20,7 @@ var app = builder.Build();
 // İzni aktifleştir
 app.UseCors("ReactIzin");
 
+Hashtable durakHashtable = new Hashtable();
 // ==========================================
 // DIŞARIYA AÇILAN API KAPILARI (ENDPOINTS)
 // ==========================================
