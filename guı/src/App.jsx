@@ -29,18 +29,18 @@ function App() {
   const [kullaniciKonum, setKullaniciKonum] = useState(null);
   const [enYakinDurak, setEnYakinDurak] = useState(null);
 
-  useEffect(() => {
-    const dataUrl = "http://localhost:8000/duraklar";
-
-    Promise.all([
-      fetch("http://localhost:8000/duraklar").then(res => res.json()),
-      fetch("http://localhost:8000/hatlar").then(res => res.json())
-    ])
-        .then(([duraklarData, hatlarData]) => {
-          setSehirVerisi({ duraklar: duraklarData, hatlar: hatlarData });
-        })
-        .catch(error => console.error("Veri çekilirken hata:", error));
-  }, []);
+    useEffect(() => {
+        // Hatlar için C# tarafında henüz bir endpoint yazmadığımızdan
+        // şimdilik sadece durakları güncelliyoruz.
+        Promise.all([
+            fetch("http://localhost:5000/api/duraklar").then(res => res.json()), // C# API'si!
+            fetch("http://localhost:8000/hatlar").then(res => res.json()) // Bu şimdilik Python'da kalsın veya boş dönsün
+        ])
+            .then(([duraklarData, hatlarData]) => {
+                setSehirVerisi({ duraklar: duraklarData, hatlar: hatlarData });
+            })
+            .catch(error => console.error("Veri çekilirken hata:", error));
+    }, []);
 
     // Tarayıcıdan anlık canlı GPS konumunu alma
     useEffect(() => {
@@ -97,7 +97,7 @@ function App() {
     }
 
     // Yapay Zeka (AI) Servisi URL'si ve Gönderilecek Veri (Body)
-    const aiUrl = "http://localhost:8000/rota-hesapla";
+      const aiUrl = "http://localhost:5000/api/rota-bul";
 
       const requestBody = {
           kullanici_x: kullaniciKonum ? kullaniciKonum[0] : merkezKoordinat[0],
