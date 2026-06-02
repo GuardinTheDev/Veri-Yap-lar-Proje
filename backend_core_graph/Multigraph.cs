@@ -20,6 +20,18 @@ namespace backend_core_graph
         {
             hatlar.Add(hat);
         }
+        public Durak findDurakByID(int durakID)
+        {
+            foreach(Durak d in duraklar)
+            {
+                if(d.ID == durakID)
+                {
+                    return d;
+                }
+            }
+            Console.WriteLine("Durak bulunamadi");
+            return null;
+        }
 
         public List<Hat> KomsuHatlarGetir(int durakid)
         {
