@@ -56,35 +56,29 @@ function App() {
         }
     }, []);
 
-    // Konum alınınca en yakın durağı hesaplama algoritması
+    // Kullanıcı konumu değiştiğinde en yakın durağı C# KdTree'den çek
     useEffect(() => {
-        if (kullaniciKonum && sehirVerisi.duraklar.length > 0) {
-            let enYakin = null;
-            let enKisaMesafe = Infinity;
-
-            sehirVerisi.duraklar.forEach(durak => {
-                // İki nokta arasındaki mesafeyi hesaplıyoruz (X: Enlem, Y: Boylam)
-                const dx = durak.X - kullaniciKonum[0];
-                const dy = durak.Y - kullaniciKonum[1];
-                const mesafe = Math.sqrt(dx * dx + dy * dy);
-
-                if (mesafe < enKisaMesafe) {
-                    enKisaMesafe = mesafe;
-                    enYakin = durak;
-                }
-            });
-
-            if (enYakin) {
-                setEnYakinDurak(enYakin);
-                setBaslangic(enYakin.ID.toString()); // Başlangıç durağını otomatik olarak en yakın durak seçiyoruz!
-            }
+        // Sadece kullaniciKonum null DEĞİLSE bu bloğu çalıştır
+        if (kullaniciKonum) {
+            fetch(`http://localhost:5000/api/enyakin-durak?lat=${kullaniciKonum[0]}&lng=${kullaniciKonum[1]}`)
+                .then(res => res.json())
+                .then(data => {
+                    setEnYakinDurak(data);
+                    // Hem id hem ID ihtimalini kontrol ediyoruz
+                    const durakId = data.id || data.ID;
+                    if (durakId) {
+                        setBaslangic(durakId.toString());
+                    }
+                })
+                .catch(err => console.error("En yakın durak bulunamadı:", err));
         }
-    }, [kullaniciKonum, sehirVerisi.duraklar]);
+    }, [kullaniciKonum]);
 
   // API'ye istek atacak fonksiyon
-  const rotayiBul = async () => {
-    const kaynakDurak = sehirVerisi.duraklar.find(d => d.ID.toString() === baslangic);
-    const hedefDurak = sehirVerisi.duraklar.find(d => d.ID.toString() === hedef);
+    const rotayiBul = async () => {
+        // d.id veya d.ID eşleşmesini kontrol ediyoruz
+        const kaynakDurak = sehirVerisi.duraklar.find(d => (d.id || d.ID).toString() === baslangic);
+        const hedefDurak = sehirVerisi.duraklar.find(d => (d.id || d.ID).toString() === hedef);
 
     if (!baslangic || !hedef) {
       alert("Lütfen hem başlangıç hem de hedef durağını listeden seçin.");
@@ -177,11 +171,15 @@ function App() {
                 style={{ width: '100%', padding: '8px', boxSizing: 'border-box', cursor: 'pointer' }}
             >
               <option value="">Bir durak seçiniz...</option>
-              {sehirVerisi.duraklar?.map((durak) => (
-                  <option key={durak.ID} value={durak.ID}>
-                    Durak {durak.ID} - {durak.Ad}
-                  </option>
-              ))}
+                {sehirVerisi.duraklar?.map((durak, index) => {
+                    const id = durak.id || durak.ID || index;
+                    const ad = durak.ad || durak.Ad;
+                    return (
+                        <option key={id} value={id}>
+                            Durak {id} - {ad}
+                        </option>
+                    );
+                })}
             </select>
           </div>
 
@@ -193,11 +191,15 @@ function App() {
                 style={{ width: '100%', padding: '8px', boxSizing: 'border-box', cursor: 'pointer' }}
             >
               <option value="">Bir durak seçiniz...</option>
-              {sehirVerisi.duraklar?.map((durak) => (
-                  <option key={durak.ID} value={durak.ID}>
-                    Durak {durak.ID} - {durak.Ad}
-                  </option>
-              ))}
+                {sehirVerisi.duraklar?.map((durak, index) => {
+                    const id = durak.id || durak.ID || index;
+                    const ad = durak.ad || durak.Ad;
+                    return (
+                        <option key={id} value={id}>
+                            Durak {id} - {ad}
+                        </option>
+                    );
+                })}
             </select>
           </div>
 
@@ -238,13 +240,23 @@ function App() {
               )}
 
             {/* Durakları Çiz */}
-            {sehirVerisi.duraklar?.map(durak => (
-                <Marker key={durak.ID} position={[durak.X, durak.Y]}>
-                  <Popup>
-                    <strong>{durak.Ad}</strong> <br /> ID: {durak.ID}
-                  </Popup>
-                </Marker>
-            ))}
+              {sehirVerisi.duraklar?.map((durak, index) => {
+                  const lat = durak.x || durak.X;
+                  const lng = durak.y || durak.Y;
+                  const id = durak.id || durak.ID || index;
+                  const ad = durak.ad || durak.Ad;
+
+                  // Koordinatlar henüz yüklenmediyse çizimi atla, uygulamanın çökmesini engelle!
+                  if (lat === undefined || lng === undefined) return null;
+
+                  return (
+                      <Marker key={id} position={[lat, lng]}>
+                          <Popup>
+                              <strong>{ad}</strong> <br /> ID: {id}
+                          </Popup>
+                      </Marker>
+                  );
+              })}
 
             {/* Tüm Şehir Ağını (Hatları) Çiz */}
             {sehirVerisi.hatlar?.map((hat, index) => {
