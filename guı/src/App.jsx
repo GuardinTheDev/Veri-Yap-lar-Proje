@@ -416,7 +416,7 @@ function App() {
 
       </div>
   );
-  (
+    (
       <div style={{ display: 'flex', height: '100vh', margin: 0, fontFamily: 'sans-serif' }}>
 
         {/* SOL PANEL */}
