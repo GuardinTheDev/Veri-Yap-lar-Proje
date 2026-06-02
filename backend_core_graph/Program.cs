@@ -22,9 +22,11 @@ app.UseCors("ReactIzin");
 
 Hashtable durakHashtable = new Hashtable();
 KdTree durakAgaci = new KdTree();
+List<HatVerisi> tumHatlar = new List<HatVerisi>(); // Hatları RAM'de tutacağımız küme
 
 try
 {
+    // Durakları Oku
     string jsonYolu = "../python_scripts/test_sehir.json";
     if (System.IO.File.Exists(jsonYolu))
     {
@@ -36,13 +38,26 @@ try
         {
             foreach (var durak in gelenDuraklar)
             {
-                durakHashtable.Durak_Ekle(durak); // Senin yazdığın fonksiyon!
-                durakAgaci.Insert(durak);         // KdTree fonksiyonu!
+                durakHashtable.Durak_Ekle(durak);
+                durakAgaci.Insert(durak);
             }
         }
     }
+
+    // Hatları Oku
+    string hatJsonYolu = "../python_scripts/test_hatlar.json";
+    if (System.IO.File.Exists(hatJsonYolu))
+    {
+        string hatJsonMetni = System.IO.File.ReadAllText(hatJsonYolu);
+        var gelenHatlar = System.Text.Json.JsonSerializer.Deserialize<List<HatVerisi>>(hatJsonMetni,
+            new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+        if (gelenHatlar != null) {
+            tumHatlar = gelenHatlar;
+        }
+    }
 }
-catch (Exception) { /* Dosya okunamazsa sistem çökmesin diye güvenli çember */ }
+catch (Exception) { }
 
 // ==========================================
 // DIŞARIYA AÇILAN API KAPILARI (ENDPOINTS)
@@ -69,41 +84,64 @@ app.MapGet("/api/enyakin-durak", (float lat, float lng) =>
     });
 });
 
-app.MapGet("/api/hatlar", async () =>
+app.MapGet("/api/hatlar", () =>
 {
-    using HttpClient client = new HttpClient();
-
-    // Kopyaladığın GitHub Raw linkini buraya yapıştıracaksın:
-    string githubRawUrl = "https://raw.githubusercontent.com/kullanici_adi/repo_adi/main/python_scripts/test.hatlar.json";
-
-    try
-    {
-        // GitHub'daki JSON içeriğini internet üzerinden indiriyoruz
-        string jsonMetni = await client.GetStringAsync(githubRawUrl);
-        return Results.Content(jsonMetni, "application/json");
-    }
-    catch (Exception)
-    {
-        // İnternet kesilirse veya link yanlışsa hata dönmesin diye boş liste verelim
-        return Results.Content("[]", "application/json");
-    }
+    // Artık GitHub'a gitmiyoruz, Gerekli bilgiler zaten içeri aktarılıp tablolara yerleştirildi
+    return Results.Ok(tumHatlar);
 });
 
-// React'ten "Rotayı Bul" dediğinde POST isteği atacağın yer
+app.MapGet("/api/duraktan-gecen-hatlar", (int id) =>
+{
+    // Başlangıç veya Hedef ID'si kullanıcının seçtiği durağa eşit olan hatları bulur.
+    // .Distinct() komutu sayesinde "38T" ismini listeye 10 kere yazmak yerine 1 kere yazar.
+    var gecenHatlar = tumHatlar
+        .Where(h => h.BaslangicID == id || h.HedefID == id)
+        .Select(h => h.HatAd)
+        .Distinct()
+        .ToList();
+
+    return Results.Ok(gecenHatlar);
+});
+
 app.MapPost("/api/rota-bul", (RotaIstegi istek) =>
 {
-    // Kullanıcının React'ten gönderdiği başlangıç ve hedef ID'leri buraya düşer.
-    // İleride burada: A* veya dişjkstre çalışacak.
-    
-    return new { 
-        mesaj = "C# API'sine başarıyla ulaştın!",
-        hesaplanan_rota_baslangic = istek.baslangic_id,
-        hesaplanan_rota_hedef = istek.hedef_id
-    };
+    // 1. React'ten gelen ID'lere göre gerçek durakların koordinatlarını Hashtable'dan buluyoruz
+    var kaynak = durakHashtable.Durak_Getir(istek.baslangic_id);
+    var hedef = durakHashtable.Durak_Getir(istek.hedef_id);
+
+    if (kaynak == null || hedef == null) return Results.BadRequest("Duraklar eşleşmedi.");
+
+    // 2. Takım arkadaşların Graf algoritmasını buraya entegre edecek.
+    // Şimdilik React'in (OSRM) haritada kıvrımlı yolları çizebilmesi için sadece
+    // başlangıç ve hedef koordinatlarını dinamik olarak geri yolluyoruz:
+    return Results.Ok(new {
+        analiz = new {
+            ulasim_suresi_dk = 15,
+            yuruyus_mesafe_km = 0.5,
+            aktarma_sayisi = 0
+        },
+        rota_detay = new[] {
+            new { X = kaynak.X, Y = kaynak.Y }, // Seçilen başlangıç durağının X,Y'si
+            new { X = hedef.X, Y = hedef.Y }    // Seçilen hedef durağının X,Y'si
+        }
+    });
 });
 
 // Sunucuyu başlat
 app.Run();
 
-// React'ten gelecek JSON verisini C# içinde karşılayacak kalıp (Record)
-record RotaIstegi(int baslangic_id, int hedef_id);
+public class RotaIstegi
+{
+    public double kullanici_x { get; set; }
+    public double kullanici_y { get; set; }
+    public int baslangic_id { get; set; }
+    public int hedef_id { get; set; }
+}
+public class HatVerisi
+{
+    public string HatAd { get; set; }
+    public double Mesafe { get; set; }
+    public double Sure { get; set; }
+    public int BaslangicID { get; set; }
+    public int HedefID { get; set; }
+}
