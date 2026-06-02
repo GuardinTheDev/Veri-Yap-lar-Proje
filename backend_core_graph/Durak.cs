@@ -26,6 +26,8 @@ namespace backend_core_graph
         public string Ad { get; set; }
         public List<Tuple<Hat, int>> Hatlar { get; set; } //durağın ait olduğu hatlar ve o hatlardaki liste sırası
 
+        public Durak() { }
+
         public Durak(int id, double x, double y,string ad) {
             ID = id;
             X = x;
