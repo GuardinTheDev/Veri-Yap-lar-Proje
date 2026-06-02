@@ -21,6 +21,29 @@ var app = builder.Build();
 app.UseCors("ReactIzin");
 
 Hashtable durakHashtable = new Hashtable();
+KdTree durakAgaci = new KdTree();
+
+try
+{
+    string jsonYolu = "../python_scripts/test_sehir.json";
+    if (System.IO.File.Exists(jsonYolu))
+    {
+        string jsonMetni = System.IO.File.ReadAllText(jsonYolu);
+        var gelenDuraklar = System.Text.Json.JsonSerializer.Deserialize<List<Durak>>(jsonMetni,
+            new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+        if (gelenDuraklar != null)
+        {
+            foreach (var durak in gelenDuraklar)
+            {
+                durakHashtable.Durak_Ekle(durak); // Senin yazdığın fonksiyon!
+                durakAgaci.Insert(durak);         // KdTree fonksiyonu!
+            }
+        }
+    }
+}
+catch (Exception) { /* Dosya okunamazsa sistem çökmesin diye güvenli çember */ }
+
 // ==========================================
 // DIŞARIYA AÇILAN API KAPILARI (ENDPOINTS)
 // ==========================================
@@ -28,16 +51,42 @@ Hashtable durakHashtable = new Hashtable();
 
 app.MapGet("/api/duraklar", () =>
 {
-    // Veri yapımızdan gerçek durak listesini çekiyoruz
-    var gercekDuraklar = durakHashtable.TumDuraklariGetir();
-    
-    // C# nesnelerini React'in beklediği formatta (ID, Ad, X, Y) haritalandırıp gönderiyoruz
-    return gercekDuraklar.Select(d => new {
-        ID = d.ID,
-        Ad = d.Ad,
-        X = d.X, // Enlem
-        Y = d.Y  // Boylam
+    // Doğrudan senin Hashtable'ındaki dolu durakları listeyle React'e fırlatır
+    return Results.Ok(durakHashtable.TumDuraklariGetir());
+});
+
+app.MapGet("/api/enyakin-durak", (float lat, float lng) =>
+{
+    var enYakin = durakAgaci.FindNearest(lat, lng);
+
+    if (enYakin == null) return Results.NotFound();
+
+    return Results.Ok(new {
+        ID = enYakin.ID,
+        Ad = enYakin.Ad,
+        X = enYakin.X,
+        Y = enYakin.Y
     });
+});
+
+app.MapGet("/api/hatlar", async () =>
+{
+    using HttpClient client = new HttpClient();
+
+    // Kopyaladığın GitHub Raw linkini buraya yapıştıracaksın:
+    string githubRawUrl = "https://raw.githubusercontent.com/kullanici_adi/repo_adi/main/python_scripts/test.hatlar.json";
+
+    try
+    {
+        // GitHub'daki JSON içeriğini internet üzerinden indiriyoruz
+        string jsonMetni = await client.GetStringAsync(githubRawUrl);
+        return Results.Content(jsonMetni, "application/json");
+    }
+    catch (Exception)
+    {
+        // İnternet kesilirse veya link yanlışsa hata dönmesin diye boş liste verelim
+        return Results.Content("[]", "application/json");
+    }
 });
 
 // React'ten "Rotayı Bul" dediğinde POST isteği atacağın yer

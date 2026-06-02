@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace backend_core_graph
 {
-    internal class Hashtable
+    public class Hashtable
     {
         Durak[] Durak_dizisi = new Durak[1009];
 
