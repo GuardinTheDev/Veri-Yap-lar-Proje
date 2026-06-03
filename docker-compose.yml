@@ -1,16 +1,24 @@
 services:
   backend:
     build:
-      context: ./backend_core_graph
+      context: backend_core_graph
       dockerfile: Dockerfile
     ports:
       - "5000:5000"
+    networks:
+      - app-network
 
   frontend:
     build:
-      context: ./gui
+      context: gui
       dockerfile: Dockerfile
     ports:
       - "5173:5173"
     depends_on:
       - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -8,7 +8,7 @@ namespace backend_core_graph
 {   
 
     //TODO: implement hash lookup
-    interface IDurak
+    public interface IDurak
     {
         int ID { get; set; }
         double X { get; set; }
@@ -42,7 +42,7 @@ namespace backend_core_graph
             {
                 Hat hat = hatTuple.Item1;
                 int hatIndex = hatTuple.Item2;
-                Durak neighbor = hat.Duraklar[hatIndex].nextDurak.currentDurak;
+                Durak neighbor = hat.Duraklar[hatIndex].nextDurak;
                 if (neighbor != null)
                 {
                     neighbors.Add(new Tuple<Durak, Hat>(neighbor, hat));
