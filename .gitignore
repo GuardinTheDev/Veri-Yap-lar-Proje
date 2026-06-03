@@ -1,6 +1,6 @@
-/backend_core_graph/bin/
-/backend_core_graph/obj/
-
+.vscode
+/backend_core_graph/bin/*
+/backend_core_graph/obj/*
 # Prerequisites
 *.d
 
