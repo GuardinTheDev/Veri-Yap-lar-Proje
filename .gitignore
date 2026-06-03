@@ -1,6 +1,10 @@
-.vscode
-/backend_core_graph/bin/*
-/backend_core_graph/obj/*
+/backend_core_graph/bin/
+/backend_core_graph/obj/
+/python_scripts/gen-v2/gen-data
+
+# IDE/Editor files
+.vscode/
+
 # Prerequisites
 *.d
 
