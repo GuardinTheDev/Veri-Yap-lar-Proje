@@ -30,6 +30,7 @@ function App() {
   const [enYakinDurak, setEnYakinDurak] = useState(null);
   const [duraktanGecenHatlar, setDuraktanGecenHatlar] = useState([]);
   const [seciliHat, setSeciliHat] = useState('');
+    const [karanlikTema, setKaranlikTema] = useState(true); // Tema değiştirici eklendi
 
     useEffect(() => {
         // Hatlar için C# tarafında henüz bir endpoint yazmadığımızdan
@@ -204,6 +205,11 @@ function App() {
 
           {/* SOL PANEL (Karanlık Tema) */}
           <div style={{ width: '320px', backgroundColor: '#111827', color: '#e5e7eb', padding: '25px', borderRight: '1px solid #1f2937', boxShadow: '4px 0 15px rgba(0, 210, 255, 0.05)', zIndex: 1000, overflowY: 'auto' }}>
+
+              <button onClick={() => setKaranlikTema(!karanlikTema)} style={{ width: '100%', padding: '10px', marginBottom: '20px', backgroundColor: karanlikTema ? '#374151' : '#e2f0fe', color: karanlikTema ? '#fff' : '#084298', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 'bold' }}>
+                  {karanlikTema ? '☀️ Açık Temaya Geç' : '🌙 Karanlık Temaya Geç'}
+              </button>
+
               <h2 style={{ color: '#00d2ff', marginTop: 0, borderBottom: '2px solid #1f2937', paddingBottom: '15px', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '20px' }}>
                   🛰️ Akıllı Navigasyon
               </h2>
@@ -339,10 +345,10 @@ function App() {
           <div style={{ flex: 1, backgroundColor: '#0b0f19' }}>
               <MapContainer center={merkezKoordinat} zoom={12} style={{ height: '100%', width: '100%' }}>
 
-                  {/* KARANLIK TEMA HARİTA ALTLIĞI */}
+                  {/* DİNAMİK TEMA HARİTA ALTLIĞI */}
                   <TileLayer
-                      url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                      attribution='&copy; <a href="https://carto.com/">CartoDB</a>'
+                      url={karanlikTema ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
+                      attribution={karanlikTema ? '&copy; <a href="https://carto.com/">CartoDB</a>' : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}
                   />
 
                   {kullaniciKonum && (
@@ -413,197 +419,6 @@ function App() {
                   )}
               </MapContainer>
           </div>
-
-      </div>
-  );
-    (
-      <div style={{ display: 'flex', height: '100vh', margin: 0, fontFamily: 'sans-serif' }}>
-
-        {/* SOL PANEL */}
-        <div style={{ width: '300px', backgroundColor: '#f8f9fa', padding: '20px', boxShadow: '2px 0 5px rgba(0,0,0,0.1)', zIndex: 1000 }}>
-          <h2 style={{ color: '#333' }}>Akıllı Navigasyon</h2>
-
-          <div style={{ marginTop: '20px' }}>
-
-              {enYakinDurak && (
-                  <div style={{ marginBottom: '15px', padding: '10px', backgroundColor: '#e2f0fe', borderRadius: '6px', border: '1px solid #b6d4fe' }}>
-              <span style={{ fontSize: '13px', color: '#084298', display: 'block' }}>
-                📍 <strong>En Yakın Durak Tespit Edildi:</strong>
-              </span>
-                      <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#084298' }}>
-                {enYakinDurak.Ad} (Otomatik Seçildi)
-              </span>
-                  </div>
-              )}
-
-            <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Başlangıç Durağı:</label>
-            <select
-                value={baslangic}
-                onChange={(e) => setBaslangic(e.target.value)}
-                style={{ width: '100%', padding: '8px', boxSizing: 'border-box', cursor: 'pointer' }}
-            >
-              <option value="">Bir durak seçiniz...</option>
-                {sehirVerisi.duraklar?.map((durak, index) => {
-                    const id = durak.id || durak.ID || index;
-                    const ad = durak.ad || durak.Ad;
-                    return (
-                        <option key={id} value={id}>
-                            Durak {id} - {ad}
-                        </option>
-                    );
-                })}
-            </select>
-
-              {duraktanGecenHatlar.length > 0 && (
-                  <div style={{ marginTop: '10px' }}>
-                      <label style={{ display: 'block', fontSize: '12px', color: '#666', marginBottom: '5px' }}>
-                          📍 Bu Duraktan Geçen Hatlar:
-                      </label>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
-                          {duraktanGecenHatlar.map(hatAd => (
-                              <button
-                                  key={hatAd}
-                                  onClick={() => hatSecildi(hatAd)}
-                                  style={{
-                                      padding: '5px 10px',
-                                      border: '1px solid #007bff',
-                                      borderRadius: '15px',
-                                      backgroundColor: seciliHat === hatAd ? '#007bff' : 'white',
-                                      color: seciliHat === hatAd ? 'white' : '#007bff',
-                                      cursor: 'pointer',
-                                      fontWeight: 'bold',
-                                      transition: 'all 0.2s'
-                                  }}
-                              >
-                                  {hatAd}
-                              </button>
-                          ))}
-                      </div>
-                  </div>
-              )}
-              {/* -------------------------------------- */}
-
-          </div>
-
-          <div style={{ marginTop: '15px' }}>
-            <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Hedef Durak:</label>
-            <select
-                value={hedef}
-                onChange={(e) => setHedef(e.target.value)}
-                style={{ width: '100%', padding: '8px', boxSizing: 'border-box', cursor: 'pointer' }}
-            >
-              <option value="">Bir durak seçiniz...</option>
-                {sehirVerisi.duraklar?.map((durak, index) => {
-                    const id = durak.id || durak.ID || index;
-                    const ad = durak.ad || durak.Ad;
-                    return (
-                        <option key={id} value={id}>
-                            Durak {id} - {ad}
-                        </option>
-                    );
-                })}
-            </select>
-          </div>
-
-          <button
-              onClick={rotayiBul}
-              style={{ marginTop: '25px', width: '100%', padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
-            Rotayı Bul
-          </button>
-
-          {rotaAnaliz && (
-              <div style={{ marginTop: '20px', padding: '15px', backgroundColor: '#e9ecef', borderRadius: '8px', borderLeft: '5px solid #007bff' }}>
-                <h4 style={{ margin: '0 0 10px 0', color: '#333' }}>📊 Rota Analizi</h4>
-                <p style={{ margin: '5px 0', fontSize: '14px' }}><strong>Ulaşım Süresi:</strong> {rotaAnaliz.ulasim_suresi_dk} dk</p>
-                <p style={{ margin: '5px 0', fontSize: '14px' }}><strong>Yürüyüş Mesafesi:</strong> {rotaAnaliz.yuruyus_mesafe_km} km</p>
-                <p style={{ margin: '5px 0', fontSize: '14px' }}><strong>Aktarma Sayısı:</strong> {rotaAnaliz.aktarma_sayisi}</p>
-              </div>
-          )}
-
-        </div>
-
-        {/* Gerçek Harita Alanı */}
-        <div style={{ flex: 1 }}>
-          <MapContainer center={merkezKoordinat} zoom={12} style={{ height: '100%', width: '100%' }}>
-            {/* Dünya haritası görsellerini çeken altlık (TileLayer) */}
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-
-              {kullaniciKonum && (
-                  <CircleMarker
-                      center={kullaniciKonum}
-                      radius={8}
-                      pathOptions={{ fillColor: '#2575fc', color: 'white', weight: 2, fillOpacity: 1 }}
-                  >
-                      <Popup>Şu an buradasınız</Popup>
-                  </CircleMarker>
-              )}
-
-            {/* Durakları Çiz */}
-              {sehirVerisi.duraklar?.map((durak, index) => {
-                  const lat = durak.x || durak.X;
-                  const lng = durak.y || durak.Y;
-                  const id = durak.id || durak.ID || index;
-                  const ad = durak.ad || durak.Ad;
-
-                  // Koordinatlar henüz yüklenmediyse çizimi atla, uygulamanın çökmesini engelle!
-                  if (lat === undefined || lng === undefined) return null;
-
-                  return (
-                      <Marker key={id} position={[lat, lng]}>
-                          <Popup>
-                              <strong>{ad}</strong> <br /> ID: {id}
-                          </Popup>
-                      </Marker>
-                  );
-              })}
-
-              {/* Tüm Şehir Ağını (Hatları) Çiz */}
-              {sehirVerisi.hatlar?.map((hat, index) => {
-                  const hBaslangic = hat.BaslangicID || hat.baslangicID;
-                  const hHedef = hat.HedefID || hat.hedefID;
-                  const hAd = hat.HatAd || hat.hatAd;
-
-                  const baslangicDurak = sehirVerisi.duraklar.find(d => d.id === hBaslangic || d.ID === hBaslangic);
-                  const hedefDurak = sehirVerisi.duraklar.find(d => d.id === hHedef || d.ID === hHedef);
-
-                  if (baslangicDurak && hedefDurak) {
-                      const isSelected = seciliHat === hAd;
-                      // Kırmızı rota çizildiyse VEYA başka bir hat seçildiyse saydamlaştır
-                      const isFaded = gercekRota && gercekRota.length > 0 ? true : (seciliHat !== '' && !isSelected);
-
-                      return (
-                          <Polyline
-                              key={`hat-${index}-${gercekRota ? gercekRota.length : 0}`}
-                              positions={[
-                                  [baslangicDurak.x || baslangicDurak.X, baslangicDurak.y || baslangicDurak.Y],
-                                  [hedefDurak.x || hedefDurak.X, hedefDurak.y || hedefDurak.Y]
-                              ]}
-                              color={isSelected ? "#00d2ff" : "#6c757d"} // Seçiliyse Neon Mavi
-                              weight={isSelected ? 6 : 2}
-                              opacity={isFaded ? 0.02 : (isSelected ? 1 : 0.3)}
-                          >
-                              <Popup>
-                                  <strong>Hat: {hAd}</strong><br/>
-                                  Mesafe: {hat.Mesafe || hat.mesafe} km<br/>
-                                  Süre: {hat.Sure || hat.sure} dk
-                              </Popup>
-                          </Polyline>
-                      );
-                  }
-                  return null;
-              })}
-
-            <HaritaOdakla rota={gercekRota} kullanici={kullaniciKonum} />
-
-            {/* Hatları Çiz */}
-            {gercekRota.length > 0 && (
-                <Polyline positions={gercekRota} color="#FF0000" weight={5} opacity={0.8} />
-            )}
-          </MapContainer>
-        </div>
 
       </div>
   );
