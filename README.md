@@ -7,7 +7,7 @@ Bir şehrin toplu taşıma ağını graf yapısı ile modelleyen, en kısa rotay
 
 ## 👥 Ekip
 
-| Geliştirici | İsim | Öğrenci No | Odak Alanı |
+| Geliştirici | İsim | Github İsmi | Öğrenci No |  Odak Alanı
 |---|---|---|---|
 | 1. Geliştirici | Eylem Cafcav | eylem837  | 032490074 | KdTree — Mekansal Arama (C#)
 | 2. Geliştirici | Zeynep Özer | Zeynep-zer | 032490068 | Multigraph, MinHeap, Hashtable — Çekirdek Veri Yapıları (C#)
