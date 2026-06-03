@@ -30,7 +30,7 @@ namespace backend_core_graph
             {
                 Hat hat = hatTuple.Item1;
                 int hatIndex = hatTuple.Item2;
-                Durak neighbor = hat.Duraklar[hatIndex].nextDurak;
+                Durak neighbor = hat.Duraklar[hatIndex].nextDurak.currentDurak;
                 if (neighbor != null)
                 {
                     neighbors.Add(new Tuple<Durak, Hat>(neighbor, hat));
