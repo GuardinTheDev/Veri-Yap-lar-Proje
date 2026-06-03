@@ -10,8 +10,9 @@ namespace backend_core_graph
     internal class HatNode
     {
         public Durak currentDurak { get; set; }
-        public Durak nextDurak { get; set; }
+        public HatNode nextDurak { get; set; }
         public int distanceToNext { get; set; }
+        public int localID { get; set;}
     }
     internal class Hat
     {   
@@ -25,7 +26,7 @@ namespace backend_core_graph
 
         
 
-        public Hat(string hatad,double mesafe,double sure,Durak baslangic, Durak hedef )
+        public Hat(string hatad,double mesafe,double sure,Durak baslangic=null, Durak hedef=null )
         {
             HatAd = hatad;
             Mesafe = mesafe;
@@ -33,10 +34,11 @@ namespace backend_core_graph
             Baslangic = baslangic;
             Hedef = hedef;
             Duraklar = new List<HatNode>();
-            Duraklar.Add(new HatNode { currentDurak = baslangic, nextDurak = null });
-            Duraklar.Add(new HatNode { currentDurak = hedef, nextDurak = null });
-            Duraklar[0].nextDurak = Duraklar[1].currentDurak;
+            if(baslangic != null) Duraklar.Add(new HatNode { currentDurak = baslangic, nextDurak = null });
+            if(hedef != null) Duraklar.Add(new HatNode { currentDurak = hedef, nextDurak = null });
+            if((baslangic != null)&&(hedef != null)) Duraklar[0].nextDurak = Duraklar[1];
         }
+        
 
         public Durak FindDurakByID(int durakID)
         {
@@ -65,8 +67,16 @@ namespace backend_core_graph
         public void AddDurak(int prevDurakID, Durak NewDurak, int dist)
         {
             Durak prevDurak = FindDurakByID(prevDurakID);
-            Duraklar.Add(new HatNode { currentDurak = NewDurak, nextDurak =  ConvertToNode(prevDurak).nextDurak, distanceToNext = dist });
-            ConvertToNode(prevDurak).nextDurak = NewDurak;
+            HatNode newHatDurak = new HatNode { currentDurak = NewDurak, nextDurak =  ConvertToNode(prevDurak).nextDurak, distanceToNext = dist };
+            Duraklar.Add(newHatDurak);
+            ConvertToNode(prevDurak).nextDurak = newHatDurak;
+        }
+        public void AddDurak(HatNode prevDurak, Durak NewDurak, int dist)
+        {   
+            HatNode next = prevDurak.nextDurak;
+            HatNode newHatDurak = new HatNode { currentDurak = NewDurak, nextDurak = prevDurak.nextDurak, distanceToNext = dist };
+            Duraklar.Add(newHatDurak);
+            prevDurak.nextDurak = newHatDurak;
         }
         
     }
