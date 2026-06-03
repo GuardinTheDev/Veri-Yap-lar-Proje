@@ -22,7 +22,8 @@ app.UseCors("ReactIzin");
 
 Hashtable durakHashtable = new Hashtable();
 KdTree durakAgaci = new KdTree();
-List<HatVerisi> tumHatlar = new List<HatVerisi>(); // Hatları RAM'de tutacağımız küme
+Multigraph sehirGrafi = new Multigraph();
+List<HatVerisi> tumHatlar = new List<HatVerisi>();
 
 try
 {
@@ -66,7 +67,6 @@ catch (Exception) { }
 
 app.MapGet("/api/duraklar", () =>
 {
-    // Doğrudan senin Hashtable'ındaki dolu durakları listeyle React'e fırlatır
     return Results.Ok(durakHashtable.TumDuraklariGetir());
 });
 
@@ -86,7 +86,6 @@ app.MapGet("/api/enyakin-durak", (float lat, float lng) =>
 
 app.MapGet("/api/hatlar", () =>
 {
-    // Artık GitHub'a gitmiyoruz, Gerekli bilgiler zaten içeri aktarılıp tablolara yerleştirildi
     return Results.Ok(tumHatlar);
 });
 
@@ -105,25 +104,28 @@ app.MapGet("/api/duraktan-gecen-hatlar", (int id) =>
 
 app.MapPost("/api/rota-bul", (RotaIstegi istek) =>
 {
-    // 1. React'ten gelen ID'lere göre gerçek durakların koordinatlarını Hashtable'dan buluyoruz
+    // React'ten gelen ID'lere göre gerçek durak nesnelerini buluyoruz
     var kaynak = durakHashtable.Durak_Getir(istek.baslangic_id);
     var hedef = durakHashtable.Durak_Getir(istek.hedef_id);
 
     if (kaynak == null || hedef == null) return Results.BadRequest("Duraklar eşleşmedi.");
 
-    // 2. Takım arkadaşların Graf algoritmasını buraya entegre edecek.
-    // Şimdilik React'in (OSRM) haritada kıvrımlı yolları çizebilmesi için sadece
-    // başlangıç ve hedef koordinatlarını dinamik olarak geri yolluyoruz:
-    return Results.Ok(new {
+    var astarSistemi = new AStarAlgorithm();
+
+    List<Durak> bulunanRota = astarSistemi.AStar(kaynak, hedef, sehirGrafi);
+
+    if (bulunanRota == null || bulunanRota.Count == 0) return Results.NotFound("Bu iki durak arasında geçerli bir rota bulunamadı.");
+
+    // React'in haritada çizebilmesi için listeyi JSON formatında yolluyoruz
+    return Results.Ok(new
+    {
         analiz = new {
-            ulasim_suresi_dk = 15,
-            yuruyus_mesafe_km = 0.5,
+            // Şimdilik 0
+            ulasim_suresi_dk = 0,
+            yuruyus_mesafe_km = 0,
             aktarma_sayisi = 0
         },
-        rota_detay = new[] {
-            new { X = kaynak.X, Y = kaynak.Y }, // Seçilen başlangıç durağının X,Y'si
-            new { X = hedef.X, Y = hedef.Y }    // Seçilen hedef durağının X,Y'si
-        }
+        rota_detay = bulunanRota // A*'dan dönen listeyi doğrudan gönderiyoruz
     });
 });
 
