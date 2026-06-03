@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 function HaritaOdakla({ rota, kullanici, temizleKodu }) {
+    /** @type {any} */
     const map = useMap();
     useEffect(() => {
         if (rota && rota.length > 0) {
@@ -28,9 +29,10 @@ function App() {
   const [sehirVerisi, setSehirVerisi] = useState({ duraklar: [], hatlar: [] });
   const [kullaniciKonum, setKullaniciKonum] = useState(null);
   const [enYakinDurak, setEnYakinDurak] = useState(null);
-  const [duraktanGecenHatlar, setDuraktanGecenHatlar] = useState([]);
+  const [duraktanGecenHatlar, setDuraktanGecenHatlar] = useState(/** @type {string[]} */ ([]));
   const [seciliHat, setSeciliHat] = useState('');
-    const [karanlikTema, setKaranlikTema] = useState(true); // Tema değiştirici eklendi
+  const [karanlikTema, setKaranlikTema] = useState(true);
+  const [taramaYapiliyor, setTaramaYapiliyor] = useState(false);
 
     useEffect(() => {
         // Hatlar için C# tarafında henüz bir endpoint yazmadığımızdan
@@ -86,7 +88,8 @@ function App() {
                     setSeciliHat(''); // Yeni durak seçilince eski harita çizimini temizle
                 })
                 .catch(err => console.error("Hatlar çekilemedi:", err));
-        } else {
+        }else {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setDuraktanGecenHatlar([]);
             setSeciliHat('');
         }
@@ -106,6 +109,8 @@ function App() {
       alert("Seçilen durakların koordinatları bulunamadı.");
       return;
     }
+
+    setTaramaYapiliyor(true);
 
     // Yapay Zeka (AI) Servisi URL'si ve Gönderilecek Veri (Body)
       const aiUrl = "http://localhost:5000/api/rota-bul";
@@ -157,7 +162,11 @@ function App() {
     } catch (error) {
       console.error("AI Servisi ile iletişimde hata:", error);
       alert("Yapay zeka servisine bağlanılamadı. İkinci terminalde Python sunucusunun çalıştığından emin olun.");
-    }
+    }   finally{
+            setTimeout(() => {
+            setTaramaYapiliyor(false);
+            }, 1500);
+        }
 
   };
 
@@ -202,6 +211,21 @@ function App() {
 
   return (
       <div style={{ display: 'flex', height: '100vh', margin: 0, fontFamily: '"Segoe UI", Roboto, Helvetica, Arial, sans-serif', backgroundColor: '#0b0f19' }}>
+
+          {/* RADAR CSS ANİMASYONLARI */}
+          <style>
+              {`
+              @keyframes radarSweep {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+              }
+              @keyframes pulseGlow {
+                0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.4); }
+                70% { box-shadow: 0 0 0 50px rgba(0, 210, 255, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+              }
+            `}
+          </style>
 
           {/* SOL PANEL (Karanlık Tema) */}
           <div style={{ width: '320px', backgroundColor: '#111827', color: '#e5e7eb', padding: '25px', borderRight: '1px solid #1f2937', boxShadow: '4px 0 15px rgba(0, 210, 255, 0.05)', zIndex: 1000, overflowY: 'auto' }}>
@@ -308,6 +332,20 @@ function App() {
 
               <button
                   onClick={() => {
+                      setTaramaYapiliyor(true);
+                      setTimeout(() => setTaramaYapiliyor(false), 3000); // 3 saniye sonra otomatik kapanır
+                  }}
+                  style={{
+                      marginTop: '10px', width: '100%', padding: '8px',
+                      backgroundColor: 'transparent', color: '#10b981',
+                      border: '1px solid #10b981', borderRadius: '6px', cursor: 'pointer',
+                      fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px'
+                  }}>
+                  🧪 Animasyonu Test Et
+              </button>
+
+              <button
+                  onClick={() => {
                       setGercekRota([]);
                       setSeciliHat('');
                       setHedef('');
@@ -343,6 +381,20 @@ function App() {
 
           {/* HARİTA ALANI */}
           <div style={{ flex: 1, backgroundColor: '#0b0f19' }}>
+
+              {/* RADAR OVERLAY (Sadece taramaYapiliyor true ise görünür) */}
+              {taramaYapiliyor && (
+                  <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 999, display: 'flex', justifyContent: 'center', alignItems: 'center', pointerEvents: 'none' }}>
+                      <div style={{ position: 'relative', width: '200px', height: '200px', borderRadius: '50%', border: '2px solid rgba(0, 210, 255, 0.5)', background: 'radial-gradient(circle, rgba(0,210,255,0.1) 0%, rgba(0,0,0,0) 70%)', animation: 'pulseGlow 2s infinite', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                          <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'conic-gradient(from 0deg, rgba(0, 210, 255, 0) 70%, rgba(0, 210, 255, 0.8) 100%)', borderRadius: '50%', animation: 'radarSweep 1.5s linear infinite' }}></div>
+                          <div style={{ position: 'relative', zIndex: 10, color: '#00d2ff', fontWeight: 'bold', letterSpacing: '2px', textShadow: '0 0 10px #00d2ff', fontSize: '13px', textAlign: 'center' }}>AĞ<br/>TARANIYOR</div>
+                      </div>
+                  </div>
+              )}
+
+              {/* HARİTANIN KENDİSİ VE BLUR EFEKTİ KAPSAYICISI */}
+              <div style={{ height: '100%', width: '100%', transition: 'filter 0.6s ease', filter: taramaYapiliyor ? 'blur(6px) brightness(0.5) grayscale(40%)' : 'none', pointerEvents: taramaYapiliyor ? 'none' : 'auto' }}>
+
               <MapContainer center={merkezKoordinat} zoom={12} style={{ height: '100%', width: '100%' }}>
 
                   {/* DİNAMİK TEMA HARİTA ALTLIĞI */}
@@ -371,7 +423,29 @@ function App() {
                       return (
                           <Marker key={id} position={[lat, lng]}>
                               <Popup>
-                                  <strong style={{ color: '#111827' }}>{ad}</strong> <br /> Sistem ID: {id}
+                                  <div style={{ textAlign: 'center', minWidth: '130px' }}>
+                                      <strong style={{ color: '#111827', fontSize: '14px', display: 'block', marginBottom: '2px' }}>{ad}</strong>
+                                      <span style={{ fontSize: '11px', color: '#6b7280', display: 'block', marginBottom: '10px' }}>Sistem ID: {id}</span>
+
+                                      <div style={{ display: 'flex', gap: '5px', justifyContent: 'center' }}>
+                                          <button
+                                              onClick={() => setBaslangic(id.toString())}
+                                              style={{ flex: 1, backgroundColor: '#10b981', color: '#fff', border: 'none', padding: '6px', borderRadius: '4px', cursor: 'pointer', fontSize: '11px', fontWeight: 'bold', transition: 'background 0.2s' }}
+                                              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#059669'}
+                                              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#10b981'}
+                                          >
+                                              📍 Başlangıç
+                                          </button>
+                                          <button
+                                              onClick={() => setHedef(id.toString())}
+                                              style={{ flex: 1, backgroundColor: '#ef4444', color: '#fff', border: 'none', padding: '6px', borderRadius: '4px', cursor: 'pointer', fontSize: '11px', fontWeight: 'bold', transition: 'background 0.2s' }}
+                                              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#dc2626'}
+                                              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#ef4444'}
+                                          >
+                                              🎯 Hedef
+                                          </button>
+                                      </div>
+                                  </div>
                               </Popup>
                           </Marker>
                       );
@@ -418,6 +492,8 @@ function App() {
                       <Polyline positions={gercekRota} color="#ff003c" weight={6} opacity={0.9} />
                   )}
               </MapContainer>
+
+              </div>
           </div>
 
       </div>
