@@ -12,7 +12,7 @@ function HaritaOdakla({ rota, kullanici, temizleKodu }) {
             // Rota yoksa veya temizlendiyse kullanıcıya odakla
             map.flyTo(kullanici, 15, {duration: 1.5});
         }
-    }, [rota, kullanici, map, temizleKodu]); // temizleKodu değiştikçe tetiklenir
+    }, [rota, kullanici, map, temizleKodu]);
     return null;
 }
 
