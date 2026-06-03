@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace backend_core_graph
 {
-    internal class Hat
+    public class Hat
     {
         public string HatAd {  get; set; }
         public double Mesafe { get; set; }
