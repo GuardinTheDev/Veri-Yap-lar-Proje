@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace backend_core_graph
 {
-    internal class Multigraph
+    public class Multigraph
     {
         public List<Durak> duraklar = new List<Durak>();
         public Hashtable durakHashTable;
