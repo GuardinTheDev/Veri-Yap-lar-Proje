@@ -33,13 +33,12 @@ namespace backend_core_graph
             openList.Insert(0, start.ID);
             gScore[start] = 0;
 
-            // NOT: Eğer MinHeap sınıfınızda Count bir değişkense parantezsiz,
             // fonksiyonsa Count() şeklinde parantezli kullanmalısın.
             while(!openList.IsEmpty())
             {
                 var minNode = openList.RemoveMin();
 
-                // 1. DÜZELTME: Multigraph içindeki Find özelliği ile durağı buluyoruz
+                // Multigraph içindeki Find özelliği ile durağı buluyoruz
                 Durak currentStop = graph.duraklar.Find(d => d.ID == minNode.DurakId);
 
                 if (currentStop == null) continue; // Hata koruması
@@ -51,19 +50,17 @@ namespace backend_core_graph
 
                 closedList.Add(currentStop.ID);
 
-                // 2. DÜZELTME: getNeighbor yerine Multigraph'ın kendi metodunu kullanıyoruz
                 var neighborHatlar = graph.KomsuHatlarGetir(currentStop.ID);
 
                 foreach(Hat hat in neighborHatlar)
                 {
-                    // 3. DÜZELTME: Kenarın (Hattın) diğer ucundaki durağı buluyoruz
                     Durak next = (hat.Baslangic.ID == currentStop.ID) ? hat.Hedef : hat.Baslangic;
 
                     if (closedList.Contains(next.ID)) continue;
 
                     double currentGCost = gScore.ContainsKey(currentStop) ? gScore[currentStop] : double.MaxValue;
 
-                    // 4. DÜZELTME: Karmaşık arama işlemleri yerine doğrudan Hat.cs içindeki Mesafe'yi alıyoruz
+                    // Karmaşık arama işlemleri yerine doğrudan Hat.cs içindeki Mesafe'yi alıyoruz
                     double edgeCost = hat.Mesafe;
                     double tentativeGCost = currentGCost + edgeCost;
 
