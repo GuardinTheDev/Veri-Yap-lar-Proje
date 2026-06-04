@@ -3,6 +3,9 @@
 
 Bir şehrin toplu taşıma ağını graf yapısı ile modelleyen, en kısa rotayı hesaplayan ve harita üzerinde görselleştiren akıllı navigasyon sistemi.
 
+## 🎬 Demo Videosu
+[Demo Videosu için tıklayın]
+https://drive.google.com/file/d/12az5uYI5cSZ46HNltEE3vdx7vJIxqDc9/view?usp=sharing
 ---
 
 ## 👥 Ekip
