@@ -96,79 +96,68 @@ function App() {
     }, [baslangic]);
   // API'ye istek atacak fonksiyon
     const rotayiBul = async () => {
-        // d.id veya d.ID eşleşmesini kontrol ediyoruz
+        // 1. Seçilen durakların objelerini bul
         const kaynakDurak = sehirVerisi.duraklar.find(d => (d.id || d.ID).toString() === baslangic);
         const hedefDurak = sehirVerisi.duraklar.find(d => (d.id || d.ID).toString() === hedef);
 
-    if (!baslangic || !hedef) {
-      alert("Lütfen hem başlangıç hem de hedef durağını listeden seçin.");
-      return;
-    }
+        if (!baslangic || !hedef) {
+            alert("Lütfen hem başlangıç hem de hedef durağını listeden seçin.");
+            return;
+        }
 
-    if (!kaynakDurak || !hedefDurak) {
-      alert("Seçilen durakların koordinatları bulunamadı.");
-      return;
-    }
+        if (!kaynakDurak || !hedefDurak) {
+            alert("Seçilen durakların koordinatları bulunamadı.");
+            return;
+        }
 
-    setTaramaYapiliyor(true);
+        setTaramaYapiliyor(true); // Radar animasyonunu başlat
 
-    // Yapay Zeka (AI) Servisi URL'si ve Gönderilecek Veri (Body)
-      const aiUrl = "http://localhost:5000/api/rota-bul";
+        // DİKKAT: Artık C# (5000) değil, Python AI Servisine (8000) istek atıyoruz!
+        const aiUrl = "http://localhost:8000/rota-hesapla";
 
+        // Python'a göndereceğimiz veriler
         const requestBody = {
-            kullanici_x: kullaniciKonum ? kullaniciKonum[0] : merkezKoordinat[0],
-            kullanici_y: kullaniciKonum ? kullaniciKonum[1] : merkezKoordinat[1],
-            baslangic_id: kaynakDurak.id || kaynakDurak.ID,
-            hedef_id: hedefDurak.id || hedefDurak.ID
+            baslangic_id: parseInt(kaynakDurak.id || kaynakDurak.ID),
+            hedef_id: parseInt(hedefDurak.id || hedefDurak.ID)
         };
 
-    try {
-      // OSRM yerine Kendi Python Sunucumuza POST isteği atıyoruz
-      const response = await fetch(aiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(requestBody)
-      });
+        try {
+            // Python'a POST isteği atıyoruz
+            const response = await fetch(aiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            });
 
-      const data = await response.json();
+            const data = await response.json();
+            console.log("Python'dan Gelen Rota Sonucu:", data);
 
-      //  GELEN VERİYİ KONSOLA YAZDIR
-      console.log("AI Servisinden Gelen Rota Sonucu:", data);
+            // Sol paneldeki analiz kutusunu (dk, km) güncelle
+            if (data.analiz) {
+                setRotaAnaliz(data.analiz);
+            }
 
-      if (data.analiz) {
-        setRotaAnaliz(data.analiz);
-      }
+            // Haritaya kırmızı çizgiyi çizmesi için koordinatları state'e at
+            if (data.rota_detay && data.rota_detay.length > 0) {
+                // Gelen kıvrımlı koordinatları [Enlem, Boylam] sırasına çevirip haritaya basıyoruz
+                const haritaRotasi = data.rota_detay.map(durak => [durak.x || durak.X, durak.y || durak.Y]);
+                setGercekRota(haritaRotasi);
+            } else {
+                alert("Python servisi iki durak arasında bir rota bulamadı.");
+            }
 
-      // HİBRİT SİSTEM: AI'dan gelen durak sırasını OSRM'ye verip kıvrımlı gerçek yolu çizdiriyoruz
-      if (data.rota_detay && data.rota_detay.length > 0) {
-
-        // Durakları OSRM'nin istediği Boylam,Enlem;Boylam,Enlem formatında uç uca ekliyoruz
-          const osrmKoordinatlar = data.rota_detay.map(durak => `${durak.y || durak.Y},${durak.x || durak.X}`).join(';');
-        const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${osrmKoordinatlar}?overview=full&geometries=geojson`;
-
-        // OSRM'den kıvrımlı yol verisini çekiyoruz
-        const osrmResponse = await fetch(osrmUrl);
-        const osrmData = await osrmResponse.json();
-
-        if (osrmData.routes && osrmData.routes.length > 0) {
-          // Gelen kıvrımlı koordinatları Leaflet'in istediği [Enlem, Boylam] sırasına çevirip haritaya basıyoruz
-          const kivrimaliRota = osrmData.routes[0].geometry.coordinates.map(coord => [coord[1], coord[0]]);
-          setGercekRota(kivrimaliRota);
-        }
-      }
-
-    } catch (error) {
-      console.error("AI Servisi ile iletişimde hata:", error);
-      alert("Yapay zeka servisine bağlanılamadı. İkinci terminalde Python sunucusunun çalıştığından emin olun.");
-    }   finally{
+        } catch (error) {
+            console.error("Python AI Servisi ile iletişimde hata:", error);
+            alert("Python servisine bağlanılamadı. Backend'in 8000 portunda çalıştığından emin olun.");
+        } finally {
+            // İşlem bitince radar animasyonunu kapat
             setTimeout(() => {
-            setTaramaYapiliyor(false);
+                setTaramaYapiliyor(false);
             }, 1500);
         }
-
-  };
+    };
 
     // Seçilen hattın son durağını bulup otomatik hedef yapan fonksiyon
     const hatSecildi = (hatAd) => {

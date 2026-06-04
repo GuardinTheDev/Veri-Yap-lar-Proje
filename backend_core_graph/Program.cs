@@ -130,7 +130,7 @@ app.MapPost("/api/rota-bul", (RotaIstegi istek) =>
 });
 
 // Sunucuyu başlat
-app.Run();
+app.Run("http://0.0.0.0:5000");
 
 public class RotaIstegi
 {
