@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 namespace backend_core_graph
 {
     public class Hashtable
-    {
-        Durak[] Durak_dizisi = new Durak[1009];
+    {   
+        public int length {get; set;}
+        public List<Durak> Durak_dizisi;
+        public Hashtable()
+        {
+            
+        }
+        
 
         int Hashfonk(int id)
         {

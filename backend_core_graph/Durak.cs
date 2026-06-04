@@ -5,8 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace backend_core_graph
-{
-    public class Durak
+{   
+
+    //TODO: implement hash lookup
+    interface IDurak
+    {
+        int ID { get; set; }
+        double X { get; set; }
+        double Y { get; set; }
+        string Ad { get; set; }
+        List<Tuple<Hat, int>> Hatlar { get; set; }
+
+        List<Tuple<Durak, Hat>> getNeighbor();
+    }
+    public class Durak : IDurak
     {
         public int ID { get; set; }
         public double X { get; set; }

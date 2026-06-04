@@ -9,11 +9,13 @@ namespace backend_core_graph
     internal class Multigraph
     {
         public List<Durak> duraklar = new List<Durak>();
+        public Hashtable durakHashTable;
         public List<Hat> hatlar = new List<Hat>();
 
         public void DurakEkle(Durak d)
         {
             duraklar.Add(d);
+            durakHashTable.Durak_Ekle(d);
         }
 
         public void HatEkle(Hat hat)

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace backend_core_graph
 {   
     
-    internal class HatNode
+    public class HatNode
     {
         public Durak currentDurak { get; set; }
         public HatNode nextDurak { get; set; }
         public int distanceToNext { get; set; }
         public int localID { get; set;}
     }
-    internal class Hat
+    public class Hat
     {   
         // durakları tek yönlüymüş gibi düşün, çift yönlü hatlar için iki tane hat oluştur
         public string HatAd {  get; set; }
@@ -38,7 +38,6 @@ namespace backend_core_graph
             if(hedef != null) Duraklar.Add(new HatNode { currentDurak = hedef, nextDurak = null });
             if((baslangic != null)&&(hedef != null)) Duraklar[0].nextDurak = Duraklar[1];
         }
-        
 
         public Durak FindDurakByID(int durakID)
         {
