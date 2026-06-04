@@ -276,3 +276,56 @@ Daha fazla bilgi için `python_scripts/docs/` klasörüne bakın:
 - `karmasiklik_analizi.md` — Tüm veri yapılarının Big-O analizi
 - `api_dokumantasyonu.md` — Python AI servisi API detayları
 - `ai_prompt_dokumu.md` — Geliştirme sürecinde kullanılan promptlar
+
+
+###Proje Mimarisi
+classDiagram
+    class Durak {
+        +int ID
+        +double X
+        +double Y
+        +string Ad
+        +List~Tuple~Hat, int~~ Hatlar
+        +getNeighbor() List~Tuple~Durak, Hat~~
+    }
+
+    class Hat {
+        +string HatAd
+        +double Mesafe
+        +double Sure
+        +List~HatNode~ Duraklar
+        +AddDurak()
+    }
+
+    class HatNode {
+        +Durak currentDurak
+        +HatNode nextDurak
+        +int distanceToNext
+    }
+
+    class Hashtable {
+        -Durak[] Durak_dizisi
+        +Durak_Ekle(Durak d)
+        +Durak_Getir(int id)
+        +TumDuraklariGetir()
+    }
+
+    class Multigraph {
+        +List~Durak~ duraklar
+        +Hashtable durakHashTable
+        +List~Hat~ hatlar
+        +DurakEkle(Durak d)
+        +HatEkle(Hat h)
+    }
+
+    class AStarAlgorithm {
+        +AStar(Durak start, Durak goal, Multigraph graph)
+    }
+
+    Multigraph --> Durak : içerir
+    Multigraph --> Hashtable : kullanır
+    Multigraph --> Hat : yönetir
+    Hat *-- HatNode : oluşur
+    HatNode --> Durak : referans verir
+    Durak ..> Hat : Hatlar üzerinden bağlanır
+    AStarAlgorithm ..> Multigraph : rota hesaplar
