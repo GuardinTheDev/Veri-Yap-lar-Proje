@@ -26,12 +26,14 @@ namespace backend_core_graph{
             HashSet<Durak> closedSet = new HashSet<Durak>();
             Dictionary<Durak, double> gScore = new Dictionary<Durak, double>();
             Dictionary<Durak, Durak> cameFrom = new Dictionary<Durak, Durak>();
+            Dictionary<Durak, Hat> hatUsed = new Dictionary<Durak, Hat>();
             
             int AktarmaMultiplier = 10;
             
             MinHeap openList = new MinHeap();
-            openList.Insert(0, start.ID); // fScore for start is 0 + heuristic(start, goal)
+            openList.Insert(0, start.ID);
             gScore[start] = 0;
+            hatUsed[start] = null;
 
             while(openList.Count > 0) {
                 var minNode = openList.RemoveMin();
@@ -39,6 +41,11 @@ namespace backend_core_graph{
                 
                 if(currentStop.ID == goal.ID) {
                     return ReconstructPath(cameFrom, currentStop);
+                }
+                
+                // Skip if already processed
+                if (closedSet.Contains(currentStop)) {
+                    continue;
                 }
                 
                 closedSet.Add(currentStop);
@@ -54,15 +61,21 @@ namespace backend_core_graph{
                     
                     double gCost = gScore[currentStop];
                     
-                    if (currentStop.CurrentHat != null && hat.HatAd != currentStop.CurrentHat.HatAd) {
-                        gCost += AktarmaMultiplier;
+                    // Check if line changes from previous line used to reach currentStop
+                    if (hatUsed.ContainsKey(currentStop)) {
+                        Hat previousHat = hatUsed[currentStop];
+                        if (previousHat != null && hat != previousHat) {
+                            gCost += AktarmaMultiplier;
+                        }
                     }
+                    
                     gCost += hat.Duraklar.Find(node => node.currentDurak.ID == currentStop.ID).distanceToNext;
                     
                     // If we found a better path, update it
                     if (!gScore.ContainsKey(next) || gCost < gScore[next]) {
                         cameFrom[next] = currentStop;
                         gScore[next] = gCost;
+                        hatUsed[next] = hat;
                         double fCost = gCost + Heuristic(next, goal);
                         openList.Insert(fCost, next.ID);
                     }
@@ -72,3 +85,4 @@ namespace backend_core_graph{
         }
     }
 }
+
