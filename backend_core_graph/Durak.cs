@@ -18,7 +18,7 @@ namespace backend_core_graph
 
         List<Tuple<Durak, Hat>> getNeighbor();
     }
-    internal class Durak : IDurak
+    public class Durak : IDurak
     {
         public int ID { get; set; }
         public double X { get; set; }
