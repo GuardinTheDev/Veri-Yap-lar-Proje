@@ -94,5 +94,10 @@ namespace backend_core_graph
         {
             return heap[0];
         }
+
+        public int Count
+        {
+            get { return heap.Count; }
+        }
     }
 }
