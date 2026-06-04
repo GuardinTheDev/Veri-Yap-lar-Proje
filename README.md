@@ -282,6 +282,8 @@ Daha fazla bilgi için `python_scripts/docs/` klasörüne bakın:
 
 
 ###Proje Mimarisi
+
+```mermaid
 classDiagram
     class Durak {
         +int ID
