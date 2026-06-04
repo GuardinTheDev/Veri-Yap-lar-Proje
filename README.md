@@ -16,7 +16,7 @@ https://drive.google.com/file/d/12az5uYI5cSZ46HNltEE3vdx7vJIxqDc9/view?usp=shari
 +----------------+-------------------+---------------+------------+--------------------------------------------------------------+
 | 1. Geliştirici | Eylem Cafcav      | eylem837      | 032490074  | KdTree - Mekansal Arama (C#)                                 |
 | 2. Geliştirici | Zeynep Özer       | Zeynep-zer    | 032490068  | Multigraph, MinHeap, Hashtable - Çekirdek Veri Yapıları (C#) |
-| 3. Geliştirici | Mehmet Alp Bilgin | cryobyte-py   | 032490077  | A*, KNN, Rota Analizi Algoritmaları (Python)                 |
+| 3. Geliştirici | Mehmet Alp Bilgin | cryobyte-py   | 032490077  | A*, KNN, Rota Analizi Algoritmaları (Python,C#)                 |
 | 4. Geliştirici | Burak Şenol       | Burakss06     | 032490072  | Sentetik Veri Üretimi ve AI Servisi (Python/FastAPI)         |
 | 5. Geliştirici | Emre Korkut       | GuardinTheDev | 032490069  | React GUI, Harita Entegrasyonu, Sistem Birleştirme           |
 +----------------+-------------------+---------------+------------+--------------------------------------------------------------+
