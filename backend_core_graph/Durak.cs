@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Text.Json.Serialization;
 namespace backend_core_graph
 {   
 
@@ -18,11 +18,16 @@ namespace backend_core_graph
 
         List<Tuple<Durak, Hat>> getNeighbor();
     }
+
     public class Durak : IDurak
     {
+        [JsonPropertyName("ID")]
         public int ID { get; set; }
+        [JsonPropertyName("X")]
         public double X { get; set; }
+        [JsonPropertyName("Y")]
         public double Y {  get; set; }
+        [JsonPropertyName("Ad")]
         public string Ad { get; set; }
         public List<Tuple<Hat, int>> Hatlar { get; set; } //durağın ait olduğu hatlar ve o hatlardaki liste sırası
 
@@ -42,7 +47,7 @@ namespace backend_core_graph
             {
                 Hat hat = hatTuple.Item1;
                 int hatIndex = hatTuple.Item2;
-                Durak neighbor = hat.Duraklar[hatIndex].nextDurak;
+                Durak neighbor = hat.Duraklar[hatIndex].nextDurak.currentDurak;
                 if (neighbor != null)
                 {
                     neighbors.Add(new Tuple<Durak, Hat>(neighbor, hat));

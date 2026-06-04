@@ -28,7 +28,7 @@ List<HatVerisi> tumHatlar = new List<HatVerisi>();
 try
 {
     // Durakları Oku
-    string jsonYolu = "../python_scripts/test_sehir.json";
+    string jsonYolu = "test_sehir.json";
     if (System.IO.File.Exists(jsonYolu))
     {
         string jsonMetni = System.IO.File.ReadAllText(jsonYolu);
@@ -37,16 +37,22 @@ try
 
         if (gelenDuraklar != null)
         {
+            Console.WriteLine("!!! Yüklenen Durak Sayısı: " + gelenDuraklar.Count);
             foreach (var durak in gelenDuraklar)
             {
                 durakHashtable.Durak_Ekle(durak);
                 durakAgaci.Insert(durak);
+                sehirGrafi.DurakEkle(durak);
             }
-        }
+        }else {
+                 Console.WriteLine("!!! JSON Okundu ama liste NULL geldi!");
+             }
+         } else {
+             Console.WriteLine("!!! JSON dosyası bulunamadı: " + System.IO.Path.GetFullPath(jsonYolu));
     }
 
     // Hatları Oku
-    string hatJsonYolu = "../python_scripts/test_hatlar.json";
+    string hatJsonYolu = "test_hatlar.json";
     if (System.IO.File.Exists(hatJsonYolu))
     {
         string hatJsonMetni = System.IO.File.ReadAllText(hatJsonYolu);
@@ -54,8 +60,22 @@ try
             new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
         if (gelenHatlar != null) {
-            tumHatlar = gelenHatlar;
-        }
+                     tumHatlar = gelenHatlar;
+
+                     foreach (var hv in tumHatlar)
+                     {
+                         // HatVerisi içindeki ID'leri kullanarak gerçek durak nesnelerini buluyoruz
+                         Durak baslangicDuragi = durakHashtable.Durak_Getir(hv.BaslangicID);
+                         Durak hedefDuragi = durakHashtable.Durak_Getir(hv.HedefID);
+
+                         // Eğer duraklar haritada gerçekten varsa, Hattı oluştur ve graf'a ekle
+                         if (baslangicDuragi != null && hedefDuragi != null)
+                         {
+                             Hat yeniHat = new Hat(hv.HatAd, hv.Mesafe, hv.Sure, baslangicDuragi, hedefDuragi);
+                             sehirGrafi.HatEkle(yeniHat);
+                         }
+                     }
+                 }
     }
 }
 catch (Exception) { }
@@ -130,7 +150,7 @@ app.MapPost("/api/rota-bul", (RotaIstegi istek) =>
 });
 
 // Sunucuyu başlat
-app.Run();
+app.Run("http://0.0.0.0:5000");
 
 public class RotaIstegi
 {

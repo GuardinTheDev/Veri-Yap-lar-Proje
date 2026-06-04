@@ -9,7 +9,7 @@ namespace backend_core_graph
     public class Multigraph
     {
         public List<Durak> duraklar = new List<Durak>();
-        public Hashtable durakHashTable;
+        public Hashtable durakHashTable = new Hashtable();
         public List<Hat> hatlar = new List<Hat>();
 
         public void DurakEkle(Durak d)

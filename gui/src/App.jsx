@@ -113,7 +113,7 @@ function App() {
     setTaramaYapiliyor(true);
 
     // Yapay Zeka (AI) Servisi URL'si ve Gönderilecek Veri (Body)
-      const aiUrl = "http://localhost:5000/api/rota-bul";
+        const aiUrl = "http://localhost:8000/rota-hesapla";
 
         const requestBody = {
             kullanici_x: kullaniciKonum ? kullaniciKonum[0] : merkezKoordinat[0],
@@ -146,7 +146,7 @@ function App() {
 
         // Durakları OSRM'nin istediği Boylam,Enlem;Boylam,Enlem formatında uç uca ekliyoruz
           const osrmKoordinatlar = data.rota_detay.map(durak => `${durak.y || durak.Y},${durak.x || durak.X}`).join(';');
-        const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${osrmKoordinatlar}?overview=full&geometries=geojson`;
+          const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${osrmKoordinatlar}?overview=full&geometries=geojson`;
 
         // OSRM'den kıvrımlı yol verisini çekiyoruz
         const osrmResponse = await fetch(osrmUrl);

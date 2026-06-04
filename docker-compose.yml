@@ -8,6 +8,15 @@ services:
     networks:
       - app-network
 
+  ai_service:
+    build:
+      context: ./python_scripts
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      app-network:
+
   frontend:
     build:
       context: gui
@@ -16,6 +25,7 @@ services:
       - "5173:5173"
     depends_on:
       - backend
+      - ai_service
     networks:
       - app-network
 

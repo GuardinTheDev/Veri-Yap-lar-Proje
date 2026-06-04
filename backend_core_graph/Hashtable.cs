@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 namespace backend_core_graph
 {
     public class Hashtable
-    {   
-        public int length {get; set;}
-        public List<Durak> Durak_dizisi;
-        public Hashtable()
         {
-            
-        }
+            public int length {get; set;}
+
+            // List yerine Array kullanıyoruz çünkü index (hash) ile erişiyoruz
+            private Durak[] Durak_dizisi;
+
+            public Hashtable()
+            {
+                // 1009 boyutunda bir yer ayırdık. Artık dizi boş değil!
+                Durak_dizisi = new Durak[1009];
+            }
         
 
         int Hashfonk(int id)
