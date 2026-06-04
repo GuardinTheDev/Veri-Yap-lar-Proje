@@ -270,7 +270,7 @@ Toplam Maliyet = Yürüyüş Süresi + Ulaşım Süresi + (Aktarma Sayısı × 5
 
 ## 📚 Detaylı Dokümantasyon,
 
-Projenin Raporu Main içerisinde Veri-Yapıları_Grup23_Proje5_Raporu.pdf belgesidir.
+Projenin Raporu Main içerisinde Veri-Yapıları_Grup23_Proje5_Raporu.pdf belgesidir.  
 Daha fazla bilgi için `python_scripts/docs/` klasörüne bakın:
 
 - `karmasiklik_analizi.md` — Tüm veri yapılarının Big-O analizi
